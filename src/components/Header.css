@@ -1,0 +1,234 @@
+/* src/components/Header.css */
+
+/* -------------------- Header Container (Fixo e Transparente/Com Fundo) -------------------- */
+.header-container {
+  position: fixed; /* Fixa o header no topo da tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0; /* Espaçamento vertical inicial */
+  background-color: transparent; /* Fundo transparente inicialmente */
+  box-shadow: none; /* Sem sombra inicialmente */
+  border-bottom-left-radius: 0; /* Cantos retos inicialmente */
+  border-bottom-right-radius: 0;
+  z-index: 100; /* Garante que o header esteja acima da maioria dos elementos */
+  /* Transições suaves para as propriedades que mudam */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+              border-radius 0.3s ease, padding 0.3s ease;
+}
+
+/* Estilos do Header quando a página é rolada */
+.header-container.scrolled {
+  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente ao rolar */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para efeito de flutuação */
+  border-bottom-left-radius: 20px; /* Cantos arredondados */
+  border-bottom-right-radius: 20px;
+  padding: 10px 0; /* Espaçamento vertical menor ao rolar */
+}
+
+/* -------------------- Header Content (Conteúdo Interno do Header) -------------------- */
+.header-container .header-content {
+  max-width: 1200px; /* Largura máxima para centralizar o conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  padding: 0 20px; /* Espaçamento horizontal interno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.3s ease; /* Transição para o padding horizontal */
+}
+
+/* Ajuste de padding do conteúdo interno quando o header é rolado (descolar) */
+.header-container.scrolled .header-content {
+  padding: 0 30px; /* Aumenta o padding lateral para 'descolar' o conteúdo */
+}
+
+/* -------------------- Logo -------------------- */
+.logo-box {
+  background-color: #f7f7f7; /* Fundo do círculo do logo */
+  border-radius: 50%; /* Círculo perfeito */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.logo-text {
+  font-family: 'Times New Roman', serif; /* Exemplo: Fonte de logo */
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #c90000; /* Cor da fonte do logo */
+  text-transform: uppercase;
+}
+
+/* -------------------- Navegação Principal -------------------- */
+.main-nav {
+  flex-grow: 1; /* Permite que a navegação ocupe o espaço disponível */
+  display: flex;
+  justify-content: flex-end; /* Alinha os itens de navegação à direita */
+}
+
+.nav-list {
+  list-style: none; /* Remove marcadores de lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Para alinhar os itens horizontalmente */
+  gap: 25px; /* Espaçamento entre os itens de navegação */
+}
+
+.nav-item {
+  position: relative; /* Necessário para posicionar o dropdown */
+  /* Adiciona padding para que o onMouseLeave tenha uma área maior */
+  padding-bottom: 5px; /* Importante para cobrir a lacuna entre o menu e o modal */
+}
+
+.nav-item a {
+  color: #fff; /* Cor dos links no estado inicial (transparente) */
+  text-decoration: none;
+  padding: 10px 0; /* Padding vertical, padding horizontal definido pelo gap da lista */
+  transition: color 0.3s ease;
+  font-weight: bold;
+  font-size: 1.05em;
+  letter-spacing: 0.5px;
+  display: flex; /* Para alinhar texto e seta */
+  align-items: center;
+}
+
+/* Cor dos links quando o Header é rolado */
+.header-container.scrolled .nav-item a {
+  color: #333; /* Cor dos links quando o header tem fundo */
+}
+
+.nav-item a:hover {
+  color: #017491; /* Cor ao passar o mouse */
+}
+
+/* Seta do Dropdown */
+.dropdown-arrow {
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #fff; /* Seta branca no estado inicial */
+}
+
+/* Seta do Dropdown quando o Header é rolado */
+.header-container.scrolled .dropdown-arrow {
+  color: #333; /* Seta escura quando o header tem fundo */
+}
+
+/* Rotação da seta quando o dropdown está ativo */
+.has-dropdown.active .dropdown-arrow {
+  transform: translateY(-4px) rotate(180deg);
+}
+
+/* -------------------- Ícone de Perfil -------------------- */
+.profile-icon {
+  margin-left: 30px; /* Espaçamento à esquerda para separar da navegação */
+  cursor: pointer;
+  flex-shrink: 0; /* Não permite que o ícone diminua */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente do círculo do ícone */
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.profile-icon svg {
+  color: #fff; /* Cor do ícone no estado inicial */
+  transition: color 0.3s ease;
+}
+
+/* Estilos do ícone de perfil quando o Header é rolado */
+.header-container.scrolled .profile-icon {
+  background-color: #f0f0f0; /* Fundo mais claro ao rolar */
+}
+
+.header-container.scrolled .profile-icon svg {
+  color: #333; /* Cor do ícone ao rolar */
+}
+
+/* -------------------- Dropdown Modal (Container dos Cards) -------------------- */
+.dropdown-modal {
+  position: absolute;
+  /* Posicionamento para ficar abaixo do item do menu e centralizado */
+  top: calc(100% + 15px); /* Posiciona 15px abaixo do elemento pai (.nav-item) */
+  left: 50%;
+  transform: translateX(-50%) translateY(0px); /* Centraliza horizontalmente e sem offset inicial */
+  background-color: rgb(248, 248, 248); /* Fundo do modal */
+  border-radius: 20px; /* Bordas arredondadas do modal */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra do modal */
+  padding: 25px; /* Espaçamento interno */
+  display: flex; /* Ativa flexbox para alinhar os cards */
+  flex-wrap: wrap; /* Permite que os cards quebrem linha se não houver espaço */
+  justify-content: center; /* Centraliza os cards dentro do modal */
+  gap: 25px; /* Espaçamento entre os cards */
+  opacity: 0; /* Inicialmente invisível */
+  visibility: hidden; /* Inicialmente não clicável/interagível */
+  /* Transição para aparecer suavemente e sumir com atraso (para permitir interação) */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+  z-index: 101; /* Garante que o modal esteja acima do header fixo */
+  min-width: 800px; /* Largura mínima para acomodar 3 cards */
+  max-width: 90vw; /* Garante que o modal não saia da tela em viewports pequenas */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Estado do Dropdown Modal quando ativo */
+.nav-item.has-dropdown.active .dropdown-modal {
+  opacity: 1; /* Torna visível */
+  visibility: visible; /* Torna clicável/interagível */
+  transform: translateX(-50%) translateY(0); /* Posição final */
+  /* Transição para aparecer: imediata no visibility, suave no resto */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+}
+
+/* -------------------- Media Queries para Responsividade (Opcional, mas recomendado) -------------------- */
+@media (max-width: 992px) {
+  .nav-list {
+    gap: 15px; /* Reduz o espaçamento entre itens em telas menores */
+  }
+
+  .nav-item a {
+    font-size: 0.95em; /* Reduz o tamanho da fonte dos links */
+  }
+
+  .header-container .header-content {
+      padding: 0 15px;
+  }
+
+  .header-container.scrolled .header-content {
+      padding: 0 20px;
+  }
+
+  .dropdown-modal {
+    min-width: 90vw; /* Em telas menores, o modal ocupa mais largura */
+    flex-direction: column; /* Em telas menores, os cards podem empilhar */
+    align-items: center; /* Centraliza cards empilhados */
+  }
+
+  .dropdown-card-link {
+    min-width: 80%; /* Cards maiores quando empilhados */
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Esconde a navegação principal para telas muito pequenas, pode ser substituído por um menu hambúrguer */
+  }
+
+  .header-container .header-content {
+    justify-content: center; /* Centraliza logo e ícone de perfil */
+  }
+
+  .logo-box {
+      margin-right: 20px; /* Espaçamento do logo em telas pequenas */
+  }
+
+  .profile-icon {
+      margin-left: 20px;
+  }
+}

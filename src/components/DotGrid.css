@@ -1,0 +1,32 @@
+/* src/components/DotGrid.css */
+
+.dot-grid {
+  /* Estas propriedades fixam o DotGrid na viewport */
+  position: fixed; /* Fixa o grid na tela, independentemente da rolagem */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ocupa 100% da largura da viewport */
+  height: 100vh; /* Ocupa 100% da altura da viewport */
+  overflow: hidden; /* Garante que nada saia da tela, importante para o canvas */
+  z-index: -1; /* MUITO IMPORTANTE: Coloca o grid ABSOLUTAMENTE ATRÁS de todo o conteúdo */
+
+  /* As propriedades abaixo vêm do seu código original para o alinhamento do conteúdo interno */
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o dot-grid__wrap */
+  justify-content: center; /* Centraliza horizontalmente o dot-grid__wrap */
+  /* height: 100%; e width: 100%; já estão cobertos por 100vh/100vw acima */
+}
+
+.dot-grid__wrap {
+  width: 100%; /* Ocupa 100% da largura do .dot-grid (que é 100vw) */
+  height: 100%; /* Ocupa 100% da altura do .dot-grid (que é 100vh) */
+  position: relative; /* Mantém a posição relativa para o canvas absoluto */
+}
+
+.dot-grid__canvas {
+  position: absolute;
+  inset: 0; /* Equivalente a top: 0; right: 0; bottom: 0; left: 0; */
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* MUITO IMPORTANTE: Garante que o canvas não bloqueie cliques/interações com elementos acima dele */
+}
