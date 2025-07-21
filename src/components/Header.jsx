@@ -5,7 +5,7 @@ import DropdownCard from './DropdownCard';
 
 function Header() {
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [scrolled, setScrolled] = useState(false); // NOVO: Estado para controlar a rolagem
+  const [scrolled, setScrolled] = useState(false); // Estado para controlar a rolagem
 
   const handleMouseEnter = (menuName) => {
     setOpenDropdown(menuName);
@@ -15,27 +15,27 @@ function Header() {
     setOpenDropdown(null);
   };
 
-  // NOVO: useEffect para escutar o evento de rolagem
+  // useEffect para escutar o evento de rolagem
   useEffect(() => {
     const handleScroll = () => {
       // Define a altura a partir da qual o Header deve mudar (ex: 50px de rolagem)
       const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
+      if (offset > 600) { // Se a rolagem for maior que 50 pixels
+        setScrolled(true); // Adiciona a classe 'scrolled'
       } else {
-        setScrolled(false);
+        setScrolled(false); // Remove a classe 'scrolled'
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll); // Adiciona o 'listener'
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll); // Limpa o 'listener' ao desmontar
     };
-  }, []); // O array vazio garante que o efeito só rode uma vez ao montar e desmonte ao sair
+  }, []); // O array vazio garante que o efeito só rode uma vez ao montar
 
   return (
-    // Aplica a classe 'scrolled' condicionalmente
+    // Aplica a classe 'scrolled' condicionalmente ao header-container
     <header className={`header-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="logo-box">
@@ -54,7 +54,7 @@ function Header() {
               {openDropdown === 'clinica' && (
                 <div className="dropdown-modal">
                   <DropdownCard
-                    title="Terapia da Comunicaçãao"
+                    title="Terapia da Comunicação"
                     description="sessão individual, de casal ou família."
                     link="#terapia-comunicacao"
                   />
