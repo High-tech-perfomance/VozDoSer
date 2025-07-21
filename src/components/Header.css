@@ -4,42 +4,57 @@
 .header-container {
   position: fixed; /* Fixa o header no topo da tela */
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 0; /* Mantenha left e right 0 para a largura total no estado inicial */
+  right: 0; /* Adicionar right para que a largura inicial seja 100% da viewport */
+  width: auto; /* Deixe automático para a largura inicial ser controlada por left/right */
   padding: 15px 0; /* Espaçamento vertical inicial */
   background-color: transparent; /* Fundo transparente inicialmente */
   box-shadow: none; /* Sem sombra inicialmente */
   border-bottom-left-radius: 0; /* Cantos retos inicialmente */
   border-bottom-right-radius: 0;
   z-index: 100; /* Garante que o header esteja acima da maioria dos elementos */
+  max-width: none;
+  margin: 0 auto;
   /* Transições suaves para as propriedades que mudam */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease,
-              border-radius 0.3s ease, padding 0.3s ease;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease,
+    border-radius 0.5s ease, padding 0.5s ease;
 }
 
 /* Estilos do Header quando a página é rolada */
 .header-container.scrolled {
-  background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente ao rolar */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Fundo branco semi-transparente ao rolar */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para efeito de flutuação */
-  border-bottom-left-radius: 20px; /* Cantos arredondados */
-  border-bottom-right-radius: 20px;
-  padding: 10px 0; /* Espaçamento vertical menor ao rolar */
+  border-radius: 50px;
+
+   /* Propriedades para diminuir o fundo branco */
+  max-width: 90%; /* Limita a largura do fundo do header para 90% da viewport */
+  /* Ou um valor fixo, ex: max-width: 1200px; para não depender do tamanho da tela */
+  margin: 10px auto; /* Centraliza o header horizontalmente */
+  left: 0; /* Mantenha para centralizar com margin: auto */
+  right: 0; /* Mantenha para centralizar com margin: auto */
 }
 
 /* -------------------- Header Content (Conteúdo Interno do Header) -------------------- */
 .header-container .header-content {
   max-width: 1200px; /* Largura máxima para centralizar o conteúdo */
   margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
-  padding: 0 20px; /* Espaçamento horizontal interno */
+  padding: 0 10px; /* Espaçamento horizontal interno*/
   display: flex;
   justify-content: space-between;
   align-items: center;
   transition: padding 0.3s ease; /* Transição para o padding horizontal */
+  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
+  animation: zoomInFade 2s ease-out forwards; /* 2s de duração, suave, permanece no estado final */
 }
 
 /* Ajuste de padding do conteúdo interno quando o header é rolado (descolar) */
 .header-container.scrolled .header-content {
-  padding: 0 30px; /* Aumenta o padding lateral para 'descolar' o conteúdo */
+  padding: 0 50px; /* Aumenta o padding lateral para 'descolar' o conteúdo */
 }
 
 /* -------------------- Logo -------------------- */
@@ -55,7 +70,7 @@
 }
 
 .logo-text {
-  font-family: 'Times New Roman', serif; /* Exemplo: Fonte de logo */
+  font-family: "Times New Roman", serif; /* Exemplo: Fonte de logo */
   font-size: 0.8em;
   font-weight: bold;
   color: #c90000; /* Cor da fonte do logo */
@@ -127,7 +142,12 @@
   margin-left: 30px; /* Espaçamento à esquerda para separar da navegação */
   cursor: pointer;
   flex-shrink: 0; /* Não permite que o ícone diminua */
-  background-color: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente do círculo do ícone */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fundo semi-transparente do círculo do ícone */
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -155,7 +175,9 @@
 .dropdown-modal {
   position: absolute;
   /* Posicionamento para ficar abaixo do item do menu e centralizado */
-  top: calc(100% + 15px); /* Posiciona 15px abaixo do elemento pai (.nav-item) */
+  top: calc(
+    100% + 15px
+  ); /* Posiciona 15px abaixo do elemento pai (.nav-item) */
   left: 50%;
   transform: translateX(-50%) translateY(0px); /* Centraliza horizontalmente e sem offset inicial */
   background-color: rgb(248, 248, 248); /* Fundo do modal */
@@ -196,11 +218,11 @@
   }
 
   .header-container .header-content {
-      padding: 0 15px;
+    padding: 0 15px;
   }
 
   .header-container.scrolled .header-content {
-      padding: 0 20px;
+    padding: 0 20px;
   }
 
   .dropdown-modal {
@@ -225,10 +247,22 @@
   }
 
   .logo-box {
-      margin-right: 20px; /* Espaçamento do logo em telas pequenas */
+    margin-right: 20px; /* Espaçamento do logo em telas pequenas */
   }
 
   .profile-icon {
-      margin-left: 20px;
+    margin-left: 20px;
+  }
+}
+
+/* Define a animação */
+@keyframes zoomInFade {
+  from {
+    transform: scale(0.8); /* Começa com 80% do tamanho normal */
+    opacity: 0;            /* Começa totalmente transparente */
+  }
+  to {
+    transform: scale(1);   /* Termina com o tamanho normal (100%) */
+    opacity: 1;            /* Termina totalmente opaco */
   }
 }

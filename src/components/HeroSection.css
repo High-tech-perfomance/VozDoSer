@@ -16,7 +16,96 @@
 
 .hero-video {
   position: absolute;
-  top: 50%;
+  top: 50%;/* src/components/HeroSection.css */
+
+.hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* Ocupa a altura total da viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Esconde qualquer coisa que transborde, importante para o vídeo/imagem */
+    color: #fff; /* Cor padrão do texto na hero section */
+    text-align: center;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Substitua pelo seu vídeo ou imagem de fundo */
+    /* Exemplo com imagem de fundo */
+    background: url('/your-image-path.jpg') no-repeat center center/cover;
+    z-index: 1; /* Abaixo do conteúdo principal da hero */
+}
+
+.hero-content {
+    position: relative; /* Para ficar acima do background */
+    z-index: 2;
+    padding: 20px;
+    /* Ajuste para centralizar bem o conteúdo ou dar um layout específico */
+}
+
+/* -------------------- Animação de Zoom In para o Título -------------------- */
+
+/* Define a animação */
+@keyframes zoomInFade {
+  from {
+    transform: scale(0.8); /* Começa com 80% do tamanho normal */
+    opacity: 0;            /* Começa totalmente transparente */
+  }
+  to {
+    transform: scale(1);   /* Termina com o tamanho normal (100%) */
+    opacity: 1;            /* Termina totalmente opaco */
+  }
+}
+
+/* Aplica a animação ao título */
+.hero-title.zoom-in-text {
+  font-size: 4em; /* Tamanho da fonte final */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* Certifique-se de que a cor do texto seja visível no seu fundo */
+
+  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
+  animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
+  animation-delay: 0.5s; /* Opcional: atraso antes de começar a animação, para o DotGrid aparecer primeiro */
+}
+
+
+/* Estilos para outros elementos na hero section (se houver) */
+.hero-slogan {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    background-color: #5227FF;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #6a40ff;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  .hero-title.zoom-in-text {
+    font-size: 2.5em; /* Reduz o tamanho da fonte em telas menores */
+  }
+  .hero-slogan {
+    font-size: 1.2em;
+  }
+}
   left: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -70,4 +159,27 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   margin: 0;
   padding: 0;
+}
+
+/* Define a animação */
+@keyframes zoomInFade {
+  from {
+    transform: scale(0.8); /* Começa com 80% do tamanho normal */
+    opacity: 0;            /* Começa totalmente transparente */
+  }
+  to {
+    transform: scale(1);   /* Termina com o tamanho normal (100%) */
+    opacity: 1;            /* Termina totalmente opaco */
+  }
+}
+
+/* Aplica a animação ao título */
+.hero-title.zoom-in-text {
+  font-size: 4em; /* Tamanho da fonte final */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* Certifique-se de que a cor do texto seja visível no seu fundo */
+
+  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
+  animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
 }

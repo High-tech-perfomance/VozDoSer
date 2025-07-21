@@ -20,7 +20,7 @@ function HeroSection() {
     <section className="hero-section-container">
       {/* Texto "VOZ DO SER" visível por padrão, sem delay */}
       <div className="hero-content loaded"> {/* Sempre 'loaded' para o texto */}
-        <h1 className="hero-title">VOZ DO SER</h1>
+        <h1 className="hero-title zoom-in-text">VOZ DO SER</h1>
       </div>
 
       {/* Vídeo e Overlay aparecem após o delay controlado por heroElementsLoaded */}

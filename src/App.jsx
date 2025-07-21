@@ -1,8 +1,11 @@
-// src/App.jsx
+// src/App.js
 import React, { useState, useEffect } from 'react';
+import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import DotGrid from './components/DotGrid';
+import VerticalCarouselSection from './components/VerticalCarouselSection';
+import IntegrationSection from './components/IntegrationSection';
 
 function App() {
   const [mainContentVisible, setMainContentVisible] = useState(false);
@@ -17,13 +20,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* DotGrid com baseColor transparente */}
+      {/* 1. DotGrid como background */}
       <DotGrid
-        baseColor="rgba(82, 39, 255, 0.1)"   /* Pontos com 10% de opacidade */
-        activeColor="rgba(82, 39, 255, 0.7)" /* Pontos com 70% de opacidade ao interagir */
-        dotSize={16}
-        gap={32}
-        proximity={150}
+        dotSize={2}     /* Pontos menores */
+        gap={10}        /* Menor espaçamento entre pontos = mais pontos */
+        proximity={250} /* Maior área de detecção do mouse */
+        baseColor="rgba(82, 39, 255, 0.1)"
+        activeColor="rgba(82, 39, 255, 0.7)"
       />
 
       <HeroSection />
@@ -32,11 +35,15 @@ function App() {
         <>
           <Header />
           <main>
-            <section style={{ height: '100vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#333' }}>
-              <h2>Conteúdo Abaixo (Role para ver o Header mudar!)</h2>
-            </section>
-             <section style={{ height: '500px', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#333' }}>
-              <h2>Mais Conteúdo</h2>
+
+            <VerticalCarouselSection />
+
+            <IntegrationSection /> 
+            
+            <section style={{ height: '70vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#333', fontSize: '2em', textAlign: 'center' }}>
+              <div style={{ maxWidth: '1200px', width: '100%', padding: '0 20px' }}>
+                <h2></h2>
+              </div>
             </section>
           </main>
         </>
