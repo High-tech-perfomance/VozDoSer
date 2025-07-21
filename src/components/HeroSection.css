@@ -16,15 +16,9 @@
 
 .hero-video {
   position: absolute;
-<<<<<<< HEAD
-  top: 50%;/* src/components/HeroSection.css */
-
-.hero-section {
-=======
   top: 50%; /* src/components/HeroSection.css */
 
   .hero-section {
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
     position: relative;
     width: 100vw;
     height: 100vh; /* Ocupa a altura total da viewport */
@@ -34,15 +28,9 @@
     overflow: hidden; /* Esconde qualquer coisa que transborde, importante para o vídeo/imagem */
     color: #fff; /* Cor padrão do texto na hero section */
     text-align: center;
-<<<<<<< HEAD
-}
-
-.hero-background {
-=======
   }
 
   .hero-background {
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
     position: absolute;
     top: 0;
     left: 0;
@@ -50,62 +38,15 @@
     height: 100%;
     /* Substitua pelo seu vídeo ou imagem de fundo */
     /* Exemplo com imagem de fundo */
-<<<<<<< HEAD
-    background: url('/your-image-path.jpg') no-repeat center center/cover;
-    z-index: 1; /* Abaixo do conteúdo principal da hero */
-}
-
-.hero-content {
-=======
     background: url("/your-image-path.jpg") no-repeat center center/cover;
     z-index: 1; /* Abaixo do conteúdo principal da hero */
   }
 
   .hero-content {
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
     position: relative; /* Para ficar acima do background */
     z-index: 2;
     padding: 20px;
     /* Ajuste para centralizar bem o conteúdo ou dar um layout específico */
-<<<<<<< HEAD
-}
-
-/* -------------------- Animação de Zoom In para o Título -------------------- */
-
-/* Define a animação */
-@keyframes zoomInFade {
-  from {
-    transform: scale(0.8); /* Começa com 80% do tamanho normal */
-    opacity: 0;            /* Começa totalmente transparente */
-  }
-  to {
-    transform: scale(1);   /* Termina com o tamanho normal (100%) */
-    opacity: 1;            /* Termina totalmente opaco */
-  }
-}
-
-/* Aplica a animação ao título */
-.hero-title.zoom-in-text {
-  font-size: 4em; /* Tamanho da fonte final */
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #fff; /* Certifique-se de que a cor do texto seja visível no seu fundo */
-
-  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
-  animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
-  animation-delay: 0.5s; /* Opcional: atraso antes de começar a animação, para o DotGrid aparecer primeiro */
-}
-
-
-/* Estilos para outros elementos na hero section (se houver) */
-.hero-slogan {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-}
-
-.hero-button {
-    background-color: #5227FF;
-=======
   }
 
   /* -------------------- Animação de Zoom In para o Título -------------------- */
@@ -142,7 +83,6 @@
 
   .hero-button {
     background-color: #5227ff;
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
     color: #fff;
     padding: 15px 30px;
     border: none;
@@ -150,23 +90,6 @@
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-<<<<<<< HEAD
-}
-
-.hero-button:hover {
-    background-color: #6a40ff;
-}
-
-/* Media Queries para responsividade */
-@media (max-width: 768px) {
-  .hero-title.zoom-in-text {
-    font-size: 2.5em; /* Reduz o tamanho da fonte em telas menores */
-  }
-  .hero-slogan {
-    font-size: 1.2em;
-  }
-}
-=======
   }
 
   .hero-button:hover {
@@ -182,7 +105,6 @@
       font-size: 1.2em;
     }
   }
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
   left: 50%;
   min-width: 100%;
   min-height: 100%;
@@ -242,19 +164,11 @@
 @keyframes zoomInFade {
   from {
     transform: scale(0.8); /* Começa com 80% do tamanho normal */
-<<<<<<< HEAD
-    opacity: 0;            /* Começa totalmente transparente */
-  }
-  to {
-    transform: scale(1);   /* Termina com o tamanho normal (100%) */
-    opacity: 1;            /* Termina totalmente opaco */
-=======
     opacity: 0; /* Começa totalmente transparente */
   }
   to {
     transform: scale(1); /* Termina com o tamanho normal (100%) */
     opacity: 1; /* Termina totalmente opaco */
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
   }
 }
 
@@ -267,8 +181,4 @@
 
   /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
   animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d7555dedfd910fb8145565edfcc76a0d3a7f0afa
