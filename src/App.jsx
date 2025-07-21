@@ -26,8 +26,8 @@ function App() {
         dotSize={2}     /* Pontos menores */
         gap={10}        /* Menor espaçamento entre pontos = mais pontos */
         proximity={250} /* Maior área de detecção do mouse */
-        baseColor="rgba(82, 39, 255, 0.1)"
-        activeColor="rgba(82, 39, 255, 0.7)"
+        baseColor="rgba(25, 60, 58, 0.1)"
+        activeColor="rgba(25, 60, 58, 1)"
       />
 
       <HeroSection />

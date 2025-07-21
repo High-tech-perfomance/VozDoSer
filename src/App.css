@@ -9,7 +9,7 @@
     display: flex; /* Adicionado */
     flex-direction: column; /* Adicionado */
 }
-/* ... */
+
 main {
   width: 100%;
   padding: 0;
@@ -19,4 +19,26 @@ main {
   flex-direction: column; /* Adicionado: Para que os filhos de main se empilhem */
   justify-content: center; /* Adicionado: Centraliza verticalmente o conteúdo de main */
   align-items: center; /* Adicionado: Centraliza horizontalmente o conteúdo de main */
+}
+
+/* Definição da fonte personalizada */
+@font-face {
+  font-family: 'FontePrimaria'; 
+  src: url('./assets/fonts/ProzaDisplay-Regular.ttf') format('truetype'); 
+  font-weight: normal; /* ou bold, light */
+  font-style: normal; /* ou italic */
+}
+
+@font-face {
+  font-family: 'FonteSecundaria'; 
+  src: url('./assets/fonts/AzoSans-Regular.otf') format('truetype'); 
+  font-weight: normal; /* ou bold, light */
+  font-style: normal; /* ou italic */
+}
+
+@font-face {
+  font-family: 'FonteExtra'; 
+  src: url('./assets/fonts/RetroSignature.otf') format('truetype'); 
+  font-weight: normal; /* ou bold, light */
+  font-style: normal; /* ou italic */
 }

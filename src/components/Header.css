@@ -18,6 +18,7 @@
   /* Transições suaves para as propriedades que mudam */
   transition: background-color 0.5s ease, box-shadow 0.5s ease,
     border-radius 0.5s ease, padding 0.5s ease;
+  font-family: FontePrimaria;
 }
 
 /* Estilos do Header quando a página é rolada */
@@ -31,7 +32,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para efeito de flutuação */
   border-radius: 50px;
 
-   /* Propriedades para diminuir o fundo branco */
+  /* Propriedades para diminuir o fundo branco */
   max-width: 90%; /* Limita a largura do fundo do header para 90% da viewport */
   /* Ou um valor fixo, ex: max-width: 1200px; para não depender do tamanho da tela */
   margin: 10px auto; /* Centraliza o header horizontalmente */
@@ -259,10 +260,10 @@
 @keyframes zoomInFade {
   from {
     transform: scale(0.8); /* Começa com 80% do tamanho normal */
-    opacity: 0;            /* Começa totalmente transparente */
+    opacity: 0; /* Começa totalmente transparente */
   }
   to {
-    transform: scale(1);   /* Termina com o tamanho normal (100%) */
-    opacity: 1;            /* Termina totalmente opaco */
+    transform: scale(1); /* Termina com o tamanho normal (100%) */
+    opacity: 1; /* Termina totalmente opaco */
   }
 }
