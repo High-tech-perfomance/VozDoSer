@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import DotGrid from './components/DotGrid';
 import VerticalCarouselSection from './components/VerticalCarouselSection';
 import IntegrationSection from './components/IntegrationSection';
+import Footer from './components/Footer';
 
 function App() {
   const [mainContentVisible, setMainContentVisible] = useState(false);
@@ -40,11 +41,7 @@ function App() {
 
             <IntegrationSection /> 
             
-            <section style={{ height: '70vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#333', fontSize: '2em', textAlign: 'center' }}>
-              <div style={{ maxWidth: '1200px', width: '100%', padding: '0 20px' }}>
-                <h2></h2>
-              </div>
-            </section>
+            <Footer />
           </main>
         </>
       )}
