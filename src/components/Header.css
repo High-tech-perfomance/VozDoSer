@@ -1,5 +1,3 @@
-/* src/components/Header.css */
-
 /* -------------------- Header Container (Fixo e Transparente/Com Fundo) -------------------- */
 .header-container {
   position: fixed; /* Fixa o header no topo da tela */
@@ -71,7 +69,7 @@
 }
 
 .logo-text {
-  font-family: "Times New Roman", serif; /* Exemplo: Fonte de logo */
+  font-family: FontePimaria;
   font-size: 0.8em;
   font-weight: bold;
   color: #c90000; /* Cor da fonte do logo */

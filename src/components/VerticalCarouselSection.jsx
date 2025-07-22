@@ -1,20 +1,45 @@
 // src/components/VerticalCarouselSection.jsx
 import React, { useRef, useEffect, useState } from 'react';
-import './VerticalCarouselSection.css'; // Vamos criar este CSS
+import './VerticalCarouselSection.css';
 
 // Dados dos slides (adapte com o seu conteúdo real)
 const slidesData = [
-  { id: 'slide_1', title: 'Slide 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam orci massa, dictum a faucibus vitae, efficitur non quam. Nullam molestie lorem non lacus condimentum convallis. Nulla at augue at elit vulputate eleifend eget nec neque. In quis egestas dui. Aenean vitae pulvinar tellus. Proin at quam ac nisi suscipit consectetur. Maecenas interdum id augue sit amet auctor. Maecenas sed scelerisque arcu, et semper enim. In scelerisque convallis nisi. Nunc ut enim vitae nulla volutpat convallis.' },
-  { id: 'slide_2', title: 'Slide 2', content: 'Cras tristique pretium tortor, a venenatis metus. Fusce a tellus non nulla pharetra efficitur. Mauris ut tortor lectus. Aliquam pulvinar est id mauris tincidunt, a dapibus nulla tincidunt. Vivamus vitae felis vel nisl consectetur tristique. Curabitur vel purus vel felis pharetra fermentum. Etiam vitae tellus eu ex convallis scelerisque.' },
-  { id: 'slide_3', title: 'Slide 3', content: 'Duis auctor ex quis orci blandit, eu elementum magna viverra. Sed id arcu at justo blandit convallis in a elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec non turpis a urna suscipit semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
-  { id: 'slide_4', title: 'Slide 4', content: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam eu sapien quis magna commodo vulputate. Proin in lorem quis lorem tincidunt facilisis. Sed euismod, quam vel aliquam ultrices, odio nisi elementum libero, non tincidunt massa ex eu velit.' },
-  { id: 'slide_5', title: 'Slide 5', content: 'Este é um slide extra para garantir que haja rolagem suficiente e que o scrollspy funcione bem.' },
+  { 
+    id: 'slide_1', 
+    title: 'Clínica', 
+    content: [
+      'Terapia da Comunicação (sessão individual, de casal ou família).',
+      'Desenvolvimento pessoal: consultoria financeira, carreira com propósito, aulas de inglês e desbloqueio energético.',
+      'Cuidado artístico: fonoterapia, canto, instrumentos e oficinas de expressividade.'
+    ]
+  },
+  { 
+    id: 'slide_2', 
+    title: 'Escola', 
+    content: [
+      'Workshop Voz do Ser (comunicação, relacionamento e autoconhecimento na prática).',
+      'Formação de Terapeutas da Comunicação (Metodologia Comunicação com Propósito).',
+      'Ser em Cena (curso livre de teatro com autoconhecimento).',
+      'Treinamento de expressividade e performance.'
+    ]
+  },
+  { 
+    id: 'slide_3', 
+    title: 'Soluções empresariais e educacionais', 
+    content: [
+      'Desenvolvimento de soft skills, cultura organizacional e ambientes emocionalmente seguros.',
+      'Treinamentos de equipe e capacitação de lideranças e educadores.',
+      'Palestras, workshops, conversas guiadas e terapia da comunicação para empresas e escolas.'
+    ]
+  },
 ];
 
 function VerticalCarouselSection() {
+  const sectionRef = useRef(null); // Ref para a seção inteira para a animação de entrada
   const slidesContainerRef = useRef(null); // Ref para o div.slides (o contêiner rolável)
   const slideRefs = useRef({}); // Refs para cada slide individual
   const [activeSlideId, setActiveSlideId] = useState(slidesData[0].id); // Estado para o slide ativo
+  const [isVisible, setIsVisible] = useState(false); // Estado para a animação de fade-in
 
   // Função para rolar para um slide específico
   const scrollToSlide = (id) => {
@@ -34,8 +59,11 @@ function VerticalCarouselSection() {
   useEffect(() => {
     const observerOptions = {
       root: slidesContainerRef.current, // O contêiner de slides é o elemento raiz para a observação
-      rootMargin: '0px 0px -50% 0px', // Detecta quando o slide está na metade da viewport do root
-      threshold: 0, // Dispara quando qualquer parte do elemento entra no root
+      // Define a "linha de ativação" um pouco acima do centro (40% do topo).
+      // Isso garante que apenas um slide seja considerado "intersecting" por vez,
+      // resolvendo o problema de pular itens ao rolar para cima.
+      rootMargin: '-40% 0px -60% 0px',
+      threshold: 0, // Dispara assim que o slide toca a linha de ativação.
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -61,17 +89,41 @@ function VerticalCarouselSection() {
     return () => {
       observer.disconnect();
     };
-  }, []); // Executa apenas uma vez na montagem
+  }, []);
+
+  // useEffect para a animação de fade-in da seção
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target); // Para de observar após a primeira vez
+          }
+        });
+      },
+      { threshold: 0.1 } // Aciona quando 10% do elemento está visível
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section className="vertical-carousel-section">
+    <section className={`vertical-carousel-section ${isVisible ? 'is-visible' : ''}`} ref={sectionRef}>
       <div className="content-container">
-        <h1>Barra principal</h1>
+        <h1>O que é o Voz do Ser</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam orci
-          massa, dictum a faucibus vitae, efficitur non quam. Nullam molestie
-          lorem non lacus condimentum convallis.
+          O Voz do Ser é um Instituto de Comunicação com Propósito, Autoconhecimento e Expansão Consciencial.
         </p>
+        <p>Com metodologia exclusiva, atua em 3 principais frentes:</p>
         <ul className="slide-navigation">
           {slidesData.map((slide) => (
             <li key={slide.id}>
@@ -99,7 +151,11 @@ function VerticalCarouselSection() {
           >
             <div className="inner-content">
               <h1>{slide.title}</h1>
-              <p>{slide.content}</p>
+              <ul>
+                {slide.content.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         ))}

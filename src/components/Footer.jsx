@@ -1,8 +1,7 @@
-// src/components/Footer.jsx
 import React from 'react';
 import './Footer.css';
-// Se você tiver uma imagem de logo para o rodapé, importe-a aqui
-// import FooterLogo from '../assets/your-footer-logo.png'; // Exemplo
+// Colocar a imagem do Rodapé aqui
+// import FooterLogo from '../assets/your-footer-logo.png'; // 
 
 function Footer() {
   return (
@@ -14,15 +13,16 @@ function Footer() {
           <div className="footer-column footer-about">
             <div className="footer-logo-container">
               <span className="footer-logo-text">Voz do Ser</span>
-              {/* <img src={FooterLogo} alt="Voz de Being Logo" className="footer-logo-image" /> ADICIONAR LOGO*/}
+              {/* <img src={FooterLogo} alt="Voz do Ser - Logo" className="footer-logo-image" /> ADICIONAR LOGO*/}
             </div>
             <p className="footer-description">
-              Até que todos sejam um!
+              Até que todos expressem quem somos!
             </p>
             <div className="footer-social-links">
-              <a href="#" aria-label="Facebook">FACEBOOK<i className="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram">INSTAGRAM<i className="fab fa-instagram"></i></a>
-              <a href="#" aria-label="YouTube">YOUTUBE<i className="fab fa-youtube"></i></a>
+              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Spotify"><i className="fab fa-spotify"></i></a>
+              <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
             </div>
           </div>
 
@@ -35,18 +35,22 @@ function Footer() {
               <li><a href="#">Escola</a></li>
               <li><a href="#">Soluções Empresariais</a></li>
               <li><a href="#">Equipe</a></li>
+              <li><a href="#">Contato</a></li>
             </ul>
           </div>
 
-          {/* Coluna 3: Programs */}
+          {/* Coluna 3: Catálogo */}
           <div className="footer-column footer-programs">
             <h3>Serviços</h3>
             <ul>
-              <li><a href="#">Comunicação com Propósito</a></li>
-              <li><a href="#">Ser em Cena</a></li>
-              <li><a href="#">Workshop</a></li>
-              <li><a href="#">Fonoaudiologia</a></li>
-              <li><a href="#">Aula de canto</a></li>
+              <li><a href="#">Terapia da Comunicação</a></li>
+              <li><a href="#">Carreira com Propósito</a></li>
+              <li><a href="#">Consultoria Financeira</a></li>
+              <li><a href="#">Desbloqueio Energético</a></li>
+              <li><a href="#">Fonoterapia</a></li>
+              <li><a href="#">Aula de Música e Canto</a></li>
+              <li><a href="#">Treinamento de Expressividade e Performance</a></li>
+              <li><a href="#">Aula de Inglês</a></li>
             </ul>
           </div>
 

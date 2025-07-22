@@ -1,4 +1,3 @@
-// src/components/DotGrid.jsx
 import { useRef, useEffect, useCallback, useMemo } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
@@ -18,7 +17,7 @@ const throttle = (func, limit) => {
   };
 };
 
-// NOVO: Função para analisar cores Hex ou RGBA e retornar objeto {r, g, b, a}
+// Função para analisar cores Hex ou RGBA e retornar objeto {r, g, b, a}
 function parseColor(colorString) {
   // Tenta parsear como RGBA
   let m = colorString.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*([\d.]+)?\)$/i);
@@ -54,8 +53,8 @@ function parseColor(colorString) {
 const DotGrid = ({
   dotSize = 2,
   gap = 10,
-  baseColor = "rgba(82, 39, 255, 0.5)", // NOVO VALOR PADRÃO COM TRANSPARÊNCIA
-  activeColor = "rgba(82, 39, 255, 1)", // NOVO VALOR PADRÃO COM TRANSPARÊNCIA
+  baseColor = "rgba(82, 39, 255, 0.5)", // VALOR PADRÃO COM TRANSPARÊNCIA
+  activeColor = "rgba(82, 39, 255, 1)", // VALOR PADRÃO COM TRANSPARÊNCIA
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,

@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import DropdownCard from './DropdownCard';
