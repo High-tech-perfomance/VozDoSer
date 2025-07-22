@@ -69,7 +69,7 @@
 }
 
 .logo-text {
-  font-family: "Times New Roman", serif; /* Exemplo: Fonte de logo */
+  font-family: FontePimaria;
   font-size: 0.8em;
   font-weight: bold;
   color: #c90000;
@@ -372,7 +372,7 @@
     opacity: 0; /* Começa totalmente transparente */
   }
   to {
-    transform: scale(1);   /* Termina com o tamanho normal (100%) */
-    opacity: 1;            /* Termina totalmente opaco */
+    transform: scale(1); /* Termina com o tamanho normal (100%) */
+    opacity: 1; /* Termina totalmente opaco */
   }
 }
