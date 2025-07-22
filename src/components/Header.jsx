@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
+import logoClaro from '../assets/logoClaro.png'; // 1. Importe o seu logo
 import DropdownCard from './DropdownCard';
 
 function Header() {
@@ -38,7 +39,8 @@ function Header() {
     <header className={`header-container ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="logo-box">
-          <span className="logo-text">VOZ DO SER</span>
+          {/* 2. Substitua o texto pela imagem do logo */}
+          <img src={logoClaro} alt="Voz do Ser Logo" className="logo-image" />
         </div>
         <nav className="main-nav">
           <ul className="nav-list">
@@ -49,7 +51,7 @@ function Header() {
               onMouseEnter={() => handleMouseEnter('clinica')}
               onMouseLeave={handleMouseLeave}
             >
-              {/* ATUALIZAÇÃO AQUI */}
+              
               <a href="#clinica" className="nav-link-with-arrow">
                 CLÍNICA
                 <span className="arr">
@@ -82,7 +84,7 @@ function Header() {
               onMouseEnter={() => handleMouseEnter('escola')}
               onMouseLeave={handleMouseLeave}
             >
-              {/* ATUALIZAÇÃO AQUI */}
+
               <a href="#escola" className="nav-link-with-arrow">
                 ESCOLA
                 <span className="arr">
@@ -103,7 +105,7 @@ function Header() {
               onMouseEnter={() => handleMouseEnter('solucoes')}
               onMouseLeave={handleMouseLeave}
             >
-              {/* ATUALIZAÇÃO AQUI */}
+
               <a href="#solucoes-empresariais" className="nav-link-with-arrow">
                 SOLUÇÕES EMPRESARIAIS
                 <span className="arr">

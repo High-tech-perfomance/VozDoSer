@@ -1,5 +1,5 @@
 .footer-section {
-  background-color: #23232e; /* Cor de fundo principal do rodapé */
+  background-color: #193c3a; /* Cor de fundo principal do rodapé */
   color: #e0e0e0; /* Cor do texto padrão para o rodapé */
   padding-top: 50px; /* Padding no topo para dar espaço ao conteúdo */
   font-family: sans-serif; /* Mantenha a fonte consistente com o resto do site */
@@ -70,7 +70,7 @@
 }
 
 .footer-social-links a:hover {
-  background-color: #5227ff; /* Cor de fundono hover */
+  background-color: #11bd92; /* Cor de fundono hover */
   color: #ffffff; /* Ícone branco no hover */
 }
 
