@@ -1,66 +1,65 @@
-/* src/components/Header.css */
-
 /* -------------------- Header Container (Fixo e Transparente/Com Fundo) -------------------- */
 .header-container {
-  position: fixed; /* Fixa o header no topo da tela */
+  position: fixed;
   top: 0;
-  left: 0; /* Mantenha left e right 0 para a largura total no estado inicial */
-  right: 0; /* Adicionar right para que a largura inicial seja 100% da viewport */
-  width: auto; /* Deixe automático para a largura inicial ser controlada por left/right */
-  padding: 15px 0; /* Espaçamento vertical inicial */
-  background-color: transparent; /* Fundo transparente inicialmente */
-  box-shadow: none; /* Sem sombra inicialmente */
-  border-bottom-left-radius: 0; /* Cantos retos inicialmente */
+  left: 0;
+  right: 0;
+  width: auto;
+  padding: 15px 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  z-index: 100; /* Garante que o header esteja acima da maioria dos elementos */
+  z-index: 100;
   max-width: none;
   margin: 0 auto;
-  /* Transições suaves para as propriedades que mudam */
   transition: background-color 0.5s ease, box-shadow 0.5s ease,
     border-radius 0.5s ease, padding 0.5s ease;
+  font-family: FontePrimaria;
 }
 
 /* Estilos do Header quando a página é rolada */
 .header-container.scrolled {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.95
-  ); /* Fundo branco semi-transparente ao rolar */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para efeito de flutuação */
+  background-color: #fffffff2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 50px;
+<<<<<<< HEAD
+  max-width: 90%;
+  margin: 10px auto;
+  left: 0;
+  right: 0;
+=======
 
-   /* Propriedades para diminuir o fundo branco */
+  /* Propriedades para diminuir o fundo branco */
   max-width: 90%; /* Limita a largura do fundo do header para 90% da viewport */
   /* Ou um valor fixo, ex: max-width: 1200px; para não depender do tamanho da tela */
   margin: 10px auto; /* Centraliza o header horizontalmente */
   left: 0; /* Mantenha para centralizar com margin: auto */
   right: 0; /* Mantenha para centralizar com margin: auto */
+>>>>>>> c2170af3d3249357e0e7a13c97bafad669513d51
 }
 
 /* -------------------- Header Content (Conteúdo Interno do Header) -------------------- */
 .header-container .header-content {
-  max-width: 1200px; /* Largura máxima para centralizar o conteúdo */
-  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
-  padding: 0 10px; /* Espaçamento horizontal interno*/
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: padding 0.3s ease; /* Transição para o padding horizontal */
-  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
-  animation: zoomInFade 2s ease-out forwards; /* 2s de duração, suave, permanece no estado final */
+  transition: padding 0.3s ease;
+  animation: zoomInFade 2s ease-out forwards;
 }
 
 /* Ajuste de padding do conteúdo interno quando o header é rolado (descolar) */
 .header-container.scrolled .header-content {
-  padding: 0 50px; /* Aumenta o padding lateral para 'descolar' o conteúdo */
+  padding: 0 50px;
 }
 
 /* -------------------- Logo -------------------- */
 .logo-box {
-  background-color: #f7f7f7; /* Fundo do círculo do logo */
-  border-radius: 50%; /* Círculo perfeito */
+  background-color: #f7f7f7;
+  border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
@@ -70,84 +69,197 @@
 }
 
 .logo-text {
-  font-family: "Times New Roman", serif; /* Exemplo: Fonte de logo */
+<<<<<<< HEAD
+  font-family: "Times New Roman", serif;
+=======
+  font-family: FontePimaria;
+>>>>>>> c2170af3d3249357e0e7a13c97bafad669513d51
   font-size: 0.8em;
   font-weight: bold;
-  color: #c90000; /* Cor da fonte do logo */
+  color: #c90000;
   text-transform: uppercase;
 }
 
 /* -------------------- Navegação Principal -------------------- */
 .main-nav {
-  flex-grow: 1; /* Permite que a navegação ocupe o espaço disponível */
+  flex-grow: 1;
   display: flex;
-  justify-content: flex-end; /* Alinha os itens de navegação à direita */
+  justify-content: flex-end;
 }
 
 .nav-list {
-  list-style: none; /* Remove marcadores de lista */
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex; /* Para alinhar os itens horizontalmente */
-  gap: 25px; /* Espaçamento entre os itens de navegação */
+  display: flex;
+  gap: 25px;
 }
 
 .nav-item {
-  position: relative; /* Necessário para posicionar o dropdown */
-  /* Adiciona padding para que o onMouseLeave tenha uma área maior */
-  padding-bottom: 5px; /* Importante para cobrir a lacuna entre o menu e o modal */
+  position: relative;
+  padding-bottom: 5px;
+  margin: 10px;
 }
 
 .nav-item a {
-  color: #fff; /* Cor dos links no estado inicial (transparente) */
+  color: #fff;
   text-decoration: none;
-  padding: 10px 0; /* Padding vertical, padding horizontal definido pelo gap da lista */
   transition: color 0.3s ease;
   font-weight: bold;
   font-size: 1.05em;
   letter-spacing: 0.5px;
-  display: flex; /* Para alinhar texto e seta */
-  align-items: center;
+  /* Removido display: flex e align-items: center daqui para o nav-link-with-arrow */
 }
 
 /* Cor dos links quando o Header é rolado */
 .header-container.scrolled .nav-item a {
-  color: #333; /* Cor dos links quando o header tem fundo */
+  color: #333;
 }
 
 .nav-item a:hover {
-  color: #017491; /* Cor ao passar o mouse */
+  color: #017491;
+}
+/*--------------------- Setinhas Dropdown -----------------*/
+
+/* Seta do Dropdown - ESTILOS NOVOS PARA A SETA */
+/* Aplicar estilos do actionBtn23 aos links que contêm a seta */
+.nav-link-with-arrow {
+  position: relative;
+  display: inline-flex; /* Use inline-flex para alinhar texto e seta */
+  align-items: center; /* Centraliza verticalmente o texto e a seta */
+  text-transform: uppercase;
+  text-decoration: none;
+  /* Cor e hover já definidos por .nav-item a e .nav-item a:hover */
 }
 
-/* Seta do Dropdown */
-.dropdown-arrow {
+/* Este bloco .actionBtn23 .lb não será usado diretamente no JSX atual,
+   mas pode ser útil se você adicionar um texto "PREVIEW" no futuro.
+.actionBtn23 .lb {
+  display: block;
+  float: left;
+  margin-top: 3px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+*/
+
+.nav-link-with-arrow .arr { /* Renomeado de .actionBtn23 .arr para .nav-link-with-arrow .arr */
+  display: block;
+  position: relative;
+  /* float: left; - Removido pois usamos flexbox */
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  text-align: center;
+  flex-shrink: 0; /* Impede que a seta encolha */
+}
+
+.nav-link-with-arrow .arr:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff; /* Cor da borda inicial (branca) */
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  transition: transform 1.5s cubic-bezier(.19.100,1,.22,1), opacity 99.8s cubic-bezier(.19,1,.22,1);
+  -webkit-transition: transform 1.5s cubic-bezier(.19,1,.22,1), opacity .8s cubic-bezier(.19,1,.22,1);
+  -moz-transition: transform 1.5s cubic-bezier(.19,1,.22,1), opacity .8s cubic-bezier(.19,1,.22,1);
+}
+
+/* Cor da borda da seta quando o Header é rolado */
+.header-container.scrolled .nav-link-with-arrow .arr:before {
+    border: 1px solid #333; /* Borda escura quando o header tem fundo */
+}
+
+.nav-link-with-arrow .arr:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #4ffcf6; /* Cor de fundo no hover da setinha */
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  transition: transform .4s cubic-bezier(.19,1,.22,1), opacity .3s cubic-bezier(.19,1,.22,1);
+  -webkit-transition: transform .4s cubic-bezier(.19,1,.22,1), opacity .3s cubic-bezier(.19,1,.22,1);
+  -moz-transition: transform .4s cubic-bezier(.19,1,.22,1), opacity .3s cubic-bezier(.19,1,.22,1);
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  opacity: 0;
+}
+
+/* Efeito de hover quando o mouse está sobre o link do menu (que contém a seta) */
+.nav-link-with-arrow:hover .arr:before { /* Renomeado */
+  border: 1px solid #fff; /* Mantém a cor da borda no hover, mas fica transparente */
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  opacity: 0;
+}
+
+/* Efeito de hover no background da seta quando o mouse está sobre o link do menu */
+.nav-link-with-arrow:hover .arr:after { /* Renomeado */
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  opacity: 1;
+}
+
+.nav-link-with-arrow .arr .ico-arr { /* Renomeado */
   display: inline-block;
-  margin-left: 5px;
-  transition: transform 0.3s ease, color 0.3s ease;
-  color: #fff; /* Seta branca no estado inicial */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -4px;
+  border-top: 2px solid #fff; /* Cor da seta inicial (branca) */
+  border-right: 2px solid #fff;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
 }
 
-/* Seta do Dropdown quando o Header é rolado */
-.header-container.scrolled .dropdown-arrow {
-  color: #333; /* Seta escura quando o header tem fundo */
+/* Cor da seta quando o Header é rolado */
+.header-container.scrolled .nav-link-with-arrow .arr .ico-arr {
+    border-top: 2px solid #333; /* Seta escura quando o header tem fundo */
+    border-right: 2px solid #333;
 }
 
-/* Rotação da seta quando o dropdown está ativo */
-.has-dropdown.active .dropdown-arrow {
-  transform: translateY(-4px) rotate(180deg);
-}
 
 /* -------------------- Ícone de Perfil -------------------- */
 .profile-icon {
-  margin-left: 30px; /* Espaçamento à esquerda para separar da navegação */
+  margin-left: 30px;
   cursor: pointer;
-  flex-shrink: 0; /* Não permite que o ícone diminua */
+  flex-shrink: 0;
   background-color: rgba(
     255,
     255,
     255,
     0.2
-  ); /* Fundo semi-transparente do círculo do ícone */
+  );
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -158,63 +270,57 @@
 }
 
 .profile-icon svg {
-  color: #fff; /* Cor do ícone no estado inicial */
+  color: #fff;
   transition: color 0.3s ease;
 }
 
 /* Estilos do ícone de perfil quando o Header é rolado */
 .header-container.scrolled .profile-icon {
-  background-color: #f0f0f0; /* Fundo mais claro ao rolar */
+  background-color: #f0f0f0;
 }
 
 .header-container.scrolled .profile-icon svg {
-  color: #333; /* Cor do ícone ao rolar */
+  color: #333;
 }
 
 /* -------------------- Dropdown Modal (Container dos Cards) -------------------- */
 .dropdown-modal {
   position: absolute;
-  /* Posicionamento para ficar abaixo do item do menu e centralizado */
-  top: calc(
-    100% + 15px
-  ); /* Posiciona 15px abaixo do elemento pai (.nav-item) */
+  top: calc(100%);
   left: 50%;
-  transform: translateX(-50%) translateY(0px); /* Centraliza horizontalmente e sem offset inicial */
-  background-color: rgb(248, 248, 248); /* Fundo do modal */
-  border-radius: 20px; /* Bordas arredondadas do modal */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Sombra do modal */
-  padding: 25px; /* Espaçamento interno */
-  display: flex; /* Ativa flexbox para alinhar os cards */
-  flex-wrap: wrap; /* Permite que os cards quebrem linha se não houver espaço */
-  justify-content: center; /* Centraliza os cards dentro do modal */
-  gap: 25px; /* Espaçamento entre os cards */
-  opacity: 0; /* Inicialmente invisível */
-  visibility: hidden; /* Inicialmente não clicável/interagível */
-  /* Transição para aparecer suavemente e sumir com atraso (para permitir interação) */
+  transform: translateX(-50%) translateY(0px);
+  background-color: rgb(248, 248, 248);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
-  z-index: 101; /* Garante que o modal esteja acima do header fixo */
-  min-width: 800px; /* Largura mínima para acomodar 3 cards */
-  max-width: 90vw; /* Garante que o modal não saia da tela em viewports pequenas */
-  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+  z-index: 101;
+  min-width: 800px;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 /* Estado do Dropdown Modal quando ativo */
 .nav-item.has-dropdown.active .dropdown-modal {
-  opacity: 1; /* Torna visível */
-  visibility: visible; /* Torna clicável/interagível */
-  transform: translateX(-50%) translateY(0); /* Posição final */
-  /* Transição para aparecer: imediata no visibility, suave no resto */
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s;
+  opacity: 1;
+  visibility: visible;
+;
 }
 
 /* -------------------- Media Queries para Responsividade (Opcional, mas recomendado) -------------------- */
 @media (max-width: 992px) {
   .nav-list {
-    gap: 15px; /* Reduz o espaçamento entre itens em telas menores */
+    gap: 15px;
   }
 
   .nav-item a {
-    font-size: 0.95em; /* Reduz o tamanho da fonte dos links */
+    font-size: 0.95em;
   }
 
   .header-container .header-content {
@@ -226,28 +332,28 @@
   }
 
   .dropdown-modal {
-    min-width: 90vw; /* Em telas menores, o modal ocupa mais largura */
-    flex-direction: column; /* Em telas menores, os cards podem empilhar */
-    align-items: center; /* Centraliza cards empilhados */
+    min-width: 90vw;
+    flex-direction: column;
+    align-items: center;
   }
 
   .dropdown-card-link {
-    min-width: 80%; /* Cards maiores quando empilhados */
+    min-width: 80%;
     max-width: 90%;
   }
 }
 
 @media (max-width: 768px) {
   .main-nav {
-    display: none; /* Esconde a navegação principal para telas muito pequenas, pode ser substituído por um menu hambúrguer */
+    display: none;
   }
 
   .header-container .header-content {
-    justify-content: center; /* Centraliza logo e ícone de perfil */
+    justify-content: center;
   }
 
   .logo-box {
-    margin-right: 20px; /* Espaçamento do logo em telas pequenas */
+    margin-right: 20px;
   }
 
   .profile-icon {
@@ -258,11 +364,20 @@
 /* Define a animação */
 @keyframes zoomInFade {
   from {
-    transform: scale(0.8); /* Começa com 80% do tamanho normal */
-    opacity: 0;            /* Começa totalmente transparente */
+<<<<<<< HEAD
+    transform: scale(0.8);
+    opacity: 0;
   }
   to {
-    transform: scale(1);   /* Termina com o tamanho normal (100%) */
-    opacity: 1;            /* Termina totalmente opaco */
+    transform: scale(1);
+    opacity: 1;
+=======
+    transform: scale(0.8); /* Começa com 80% do tamanho normal */
+    opacity: 0; /* Começa totalmente transparente */
+  }
+  to {
+    transform: scale(1); /* Termina com o tamanho normal (100%) */
+    opacity: 1; /* Termina totalmente opaco */
+>>>>>>> c2170af3d3249357e0e7a13c97bafad669513d51
   }
 }

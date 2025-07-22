@@ -1,7 +1,3 @@
-/* src/components/VerticalCarouselSection.css */
-
-/* Removido estilos do body, pois o App.css já lida com isso */
-
 /* Reset de alguns elementos para consistência */
 p {
   line-height: 1.4;
@@ -33,29 +29,36 @@ li a.active {
 
 /* Container principal do Carrossel */
 .vertical-carousel-section {
-  background-color: teal; /* Cor de fundo da seção inteira */
+  background-color: #ffffff; 
   max-width: 1400px; /* Largura máxima do carrossel */
   margin-left: auto; /* Centraliza horizontalmente */
   margin-right: auto; /* Centraliza horizontalmente */
-  margin-top: 80px; /*Margem superior automática para centralizar verticalmente */
-  margin-bottom: auto; /*Margem inferior automática para centralizar verticalmente */
-  color: #ffffff;
+  margin-top: 80px;
+  margin-bottom: 80px;
   display: grid; /* Layout de grid para as duas colunas */
-  grid-template-columns: 35% 65%; /* Divisão de 35% para barra principal, 65% para slides */
+  grid-template-columns: 40% 60%; /* Ajuste na proporção das colunas */
   position: relative; /* Para posicionamento interno, se necessário */
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Sombra para o carrossel */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /* Sombra mais sutil, como em outros componentes */
   border-radius: 15px; /* Bordas arredondadas para o carrossel inteiro */
   overflow: hidden; /* Esconde conteúdo que transborde, importante para os slides */
-  /*Min-height para que ele possa se expandir na vertical se o conteúdo for longo,
-           mas também ter flexibilidade para centralizar se for curto.
-           Isso é crucial se o pai não for flex. */
-  min-height: 500px; /* Mantém uma altura mínima */
+  height: 600px; /* Altura fixa para ser mais compacto */
+  max-height: 80vh; /* Garante que não seja muito alto em telas maiores */
+  /* Animação de entrada */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  font-family: FontePrimaria;
+}
+
+.vertical-carousel-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Coluna da Barra Principal (esquerda) */
 .vertical-carousel-section .content-container {
-  padding: 40px;
-  background-color: #3f51b5; /* Uma cor de fundo mais distintiva para a barra principal */
+  padding: 50px;
+  background-color: #122120; /* Cor escura do rodapé para consistência */
   display: flex; /* Para centralizar o conteúdo verticalmente */
   flex-direction: column;
   justify-content: center; /* Centraliza conteúdo verticalmente */
@@ -64,30 +67,32 @@ li a.active {
 
 .vertical-carousel-section .content-container h1 {
     font-size: 2.5em;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 
 .vertical-carousel-section .content-container p {
     margin-bottom: 30px;
+    color: #ccc;
+    font-family: FonteSecundaria;
 }
 
 .vertical-carousel-section .slide-navigation a {
+    color: #ccc; /* Cor padrão para os links */
     padding: 8px 0; /* Padding para os links de navegação */
     transition: color 0.2s ease;
 }
 
 .vertical-carousel-section .slide-navigation a:hover {
-    color: #a7d9f7; /* Cor ao passar o mouse */
+    color: #11bd92; /* Cor de hover do rodapé */
 }
 
 
 /* Coluna dos Slides (direita) */
 .vertical-carousel-section .slides {
   overflow-y: auto; /* Permite rolagem apenas nesta div */
-  min-height: 500px; /* Altura mínima para que haja rolagem se o conteúdo for curto */
+  height: 100%; /* Ocupa a altura total do contêiner pai */
   scrollbar-width: none; /* Esconde scrollbar do Firefox */
-  max-height: 80vh; /* Limita a altura para que ele caiba na tela e não seja muito grande */
-  background-color: transparent; /* Permite ver o background dos slides */
 }
 
 /* Esconde scrollbar para Webkit (Chrome, Safari) */
@@ -95,16 +100,9 @@ li a.active {
   display: none;
 }
 
-/* Estilo de cada slide individual */
 .vertical-carousel-section .slides .slide {
-  /* min-height para garantir que cada slide ocupe uma porção visível para rolagem */
-  /* Ajuste este valor dependendo da altura real que você quer para cada "janela" de slide */
-  min-height: calc(100% - 0px); /* Tenta preencher a altura do contêiner de slides */
-  /* Se você quiser que cada slide ocupe a altura completa do contêiner pai (.slides) */
-  /* e o container .slides tenha altura fixa, use height: 100% */
-  /* Senão, ajuste min-height para ser a altura da janela de visualização do slide */
-  
-  background-color: skyblue; /* Cores de fundo diferentes para distinguir os slides */
+  height: 100%; /* Cada slide ocupa a altura total do contêiner de rolagem */
+  background-color: #e1f4f2; /* Fundo branco padrão para cada slide */
   display: flex;
   padding: 40px;
   color: #333333;
@@ -112,19 +110,28 @@ li a.active {
   justify-content: center; /* Centraliza horizontalmente o inner-content */
   text-align: center; /* Centraliza o texto */
   scroll-snap-align: start; /* Para um scroll mais "preso" aos slides */
+  position: relative; /* Necessário para o pseudo-elemento do separador */
 }
 
-/* Cores alternadas para os slides */
-.vertical-carousel-section .slides .slide:nth-child(odd) {
-    background-color: #f0f8ff; /* Azul claro para ímpares */
-}
+/* Adiciona um tom sutil para diferenciar os slides pares */
 .vertical-carousel-section .slides .slide:nth-child(even) {
-    background-color: #e6ffe6; /* Verde claro para pares */
+  background-color: #d3e9e6; 
 }
 
+/* Separador entre os slides para indicar a transição */
+.vertical-carousel-section .slides .slide:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  opacity: 0.7;
+}
 
 .vertical-carousel-section .slides .inner-content {
-    max-width: 600px; /* Limita a largura do texto dentro do slide */
+    max-width: 80%; /* Limita a largura do texto dentro do slide */
 }
 
 .vertical-carousel-section .slides .inner-content h1 {
@@ -132,30 +139,50 @@ li a.active {
     margin-bottom: 15px;
     color: #444;
 }
-.vertical-carousel-section .slides .inner-content p {
+.vertical-carousel-section .slides .inner-content ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding-left: 0; /* Remove o padding padrão da lista */
+    margin-top: 20px; /* Espaço acima da lista */
+    text-align: left; /* Alinha o texto dos itens à esquerda */
+    font-family: FonteSecundaria;
+}
+
+.vertical-carousel-section .slides .inner-content li {
     font-size: 1.05em;
     color: #666;
+    line-height: 1.6; /* Melhora a legibilidade */
+    position: relative; /* Necessário para o posicionamento do marcador personalizado */
+    padding-left: 25px; /* Espaço para o marcador personalizado */
+    margin-bottom: 15px; /* Espaçamento entre os itens da lista */
+}
+
+.vertical-carousel-section .slides .inner-content li::before {
+    content: '✔'; 
+    position: absolute;
+    left: 0;
+    top: 2px; /* Ajuste fino da posição vertical */
+    color: #193c3a; /* Cor roxa do tema para o marcador */
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* Responsividade */
 @media (max-width: 992px) {
   .vertical-carousel-section {
     grid-template-columns: 1fr; /* Em telas menores, as colunas se empilham */
-    max-width: 90%; /* Ajusta largura para telas menores */
+    height: auto; /* Altura automática quando empilhado */
+    max-height: none; /* Remove a altura máxima */
+    max-width: 95%;
   }
   .vertical-carousel-section .content-container {
     padding: 30px;
-    height: auto; /* Altura automática quando empilhado */
     justify-content: flex-start; /* Alinha no topo */
   }
   .vertical-carousel-section .content-container h1 {
       font-size: 2em;
   }
   .vertical-carousel-section .slides {
-    min-height: 400px; /* Ajusta altura mínima */
-  }
-  .vertical-carousel-section .slides .slide {
-    min-height: 400px; /* Ajusta altura mínima dos slides individuais */
+    height: 500px; /* Altura fixa para a área de scroll no mobile */
     padding: 30px;
   }
   .vertical-carousel-section .slide-navigation ul {
@@ -177,10 +204,6 @@ li a.active {
   .vertical-carousel-section .content-container p {
       font-size: 0.9em;
   }
-  .vertical-carousel-section .slides .inner-content h1 {
-      font-size: 1.8em;
-  }
-  .vertical-carousel-section .slides .inner-content p {
-      font-size: 0.9em;
-  }
+  .vertical-carousel-section .slides .inner-content h1 { font-size: 1.8em; }
+  .vertical-carousel-section .slides .inner-content li { font-size: 1em; }
 }

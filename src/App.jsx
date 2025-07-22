@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection';
 import DotGrid from './components/DotGrid';
 import VerticalCarouselSection from './components/VerticalCarouselSection';
 import IntegrationSection from './components/IntegrationSection';
+import Footer from './components/Footer';
 
 function App() {
   const [mainContentVisible, setMainContentVisible] = useState(false);
@@ -25,8 +26,8 @@ function App() {
         dotSize={2}     /* Pontos menores */
         gap={10}        /* Menor espaçamento entre pontos = mais pontos */
         proximity={250} /* Maior área de detecção do mouse */
-        baseColor="rgba(82, 39, 255, 0.1)"
-        activeColor="rgba(82, 39, 255, 0.7)"
+        baseColor="rgba(25, 60, 58, 0.1)"
+        activeColor="rgba(25, 60, 58, 1)"
       />
 
       <HeroSection />
@@ -40,11 +41,7 @@ function App() {
 
             <IntegrationSection /> 
             
-            <section style={{ height: '70vh', backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#333', fontSize: '2em', textAlign: 'center' }}>
-              <div style={{ maxWidth: '1200px', width: '100%', padding: '0 20px' }}>
-                <h2></h2>
-              </div>
-            </section>
+            <Footer />
           </main>
         </>
       )}

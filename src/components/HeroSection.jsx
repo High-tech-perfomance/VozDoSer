@@ -1,34 +1,41 @@
 // src/components/HeroSection.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './HeroSection.css';
-import heroVideo from '../assets/hero_video.mp4'; // Verifique se o caminho do seu vídeo está correto
+// Certifique-se de que o caminho para o seu vídeo está correto
+import videoSrc from '../assets/hero_video.mp4';
 
 function HeroSection() {
-  const [heroElementsLoaded, setHeroElementsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simula o carregamento do vídeo e overlay após o texto principal aparecer.
-    // Você pode ajustar o tempo (2000ms = 2 segundos) conforme o efeito desejado.
-    const timer = setTimeout(() => {
-      setHeroElementsLoaded(true);
-    }, 1000); // Exibe o vídeo e overlay 2 segundos após o carregamento inicial
-
-    return () => clearTimeout(timer); // Limpa o timer
-  }, []);
+  // Esta função será chamada quando o vídeo tiver dados suficientes para começar a tocar
+  const handleVideoLoad = () => {
+    // Usamos um pequeno timeout para a transição não ser tão abrupta
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  };
 
   return (
-    <section className="hero-section-container">
-      {/* Texto "VOZ DO SER" visível por padrão, sem delay */}
-      <div className="hero-content loaded"> {/* Sempre 'loaded' para o texto */}
-        <h1 className="hero-title zoom-in-text">VOZ DO SER</h1>
+    <section className="hero-container">
+      {/* Overlay de Carregamento */}
+      <div className={`loading-overlay ${!isLoading ? 'hidden' : ''}`}>
+        <h1>Voz do Ser</h1>
       </div>
 
-      {/* Vídeo e Overlay aparecem após o delay controlado por heroElementsLoaded */}
-      <video className={`hero-video ${heroElementsLoaded ? 'visible' : ''}`} autoPlay loop muted playsInline>
-        <source src={heroVideo} type="video/mp4" />
-        Seu navegador não suporta vídeos HTML5.
-      </video>
-      <div className={`hero-overlay ${heroElementsLoaded ? 'visible' : ''}`}></div>
+      {/* Vídeo de Fundo */}
+      <video
+        src={videoSrc}
+        onLoadedData={handleVideoLoad}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className={`hero-video ${!isLoading ? 'visible' : ''}`}
+      />
+
+      {/* Filtro azul sobre o vídeo */}
+      <div className={`video-overlay ${!isLoading ? 'visible' : ''}`}></div>
+
     </section>
   );
 }

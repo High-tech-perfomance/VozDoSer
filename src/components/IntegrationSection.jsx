@@ -1,4 +1,3 @@
-// src/components/IntegrationSection.jsx
 import React, { useRef, useEffect, useState } from 'react';
 import './IntegrationSection.css';
 

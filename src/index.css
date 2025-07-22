@@ -18,7 +18,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #4ffcf6; /* Cor de fundo global para toda a página */
+  background-color: #00d0ca; /* Cor de fundo global para toda a página */
   overflow-x: hidden; /* Evita rolagem horizontal */
 }
 

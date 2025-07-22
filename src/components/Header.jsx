@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import DropdownCard from './DropdownCard';
@@ -43,30 +42,36 @@ function Header() {
         </div>
         <nav className="main-nav">
           <ul className="nav-list">
-            <li className="nav-item"><a href="#home">HOME</a></li>
 
+            <li className="nav-item"><a href="#home">HOME</a></li>
             <li
               className={`nav-item has-dropdown ${openDropdown === 'clinica' ? 'active' : ''}`}
               onMouseEnter={() => handleMouseEnter('clinica')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#clinica">CLÍNICA <span className="dropdown-arrow">⌄</span></a>
+              {/* ATUALIZAÇÃO AQUI */}
+              <a href="#clinica" className="nav-link-with-arrow">
+                CLÍNICA
+                <span className="arr">
+                  <i className="ico-arr"></i>
+                </span>
+              </a>
               {openDropdown === 'clinica' && (
                 <div className="dropdown-modal">
                   <DropdownCard
                     title="Terapia da Comunicação"
                     description="sessão individual, de casal ou família."
-                    link="#terapia-comunicacao"
+                    
                   />
                   <DropdownCard
                     title="Desenvolvimento Pessoal"
                     description="reeducação financeira, treinamento de comunicação, carreira com propósito e massagem com desbloqueio energético."
-                    link="#desenvolvimento-pessoal"
+                   
                   />
                   <DropdownCard
                     title="Cuidado Artístico"
                     description="fonoterapia, aulas de canto, aulas de instrumentos e oficina de expressividade."
-                    link="#cuidado-artistico"
+                    
                   />
                 </div>
               )}
@@ -77,12 +82,18 @@ function Header() {
               onMouseEnter={() => handleMouseEnter('escola')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#escola">ESCOLA <span className="dropdown-arrow">⌄</span></a>
+              {/* ATUALIZAÇÃO AQUI */}
+              <a href="#escola" className="nav-link-with-arrow">
+                ESCOLA
+                <span className="arr">
+                  <i className="ico-arr"></i>
+                </span>
+              </a>
               {openDropdown === 'escola' && (
                 <div className="dropdown-modal">
-                  <DropdownCard title="Formação Básica" description="Detalhes da formação básica." link="#formacao-basica" />
-                  <DropdownCard title="Formação Avançada" description="Cursos para aprofundamento." link="#formacao-avancada" />
-                  <DropdownCard title="Eventos e Workshops" description="Participe de nossos eventos." link="#eventos" />
+                  <DropdownCard title="Formação Básica" description="Detalhes da formação básica." />
+                  <DropdownCard title="Formação Avançada" description="Cursos para aprofundamento." />
+                  <DropdownCard title="Eventos e Workshops" description="Participe de nossos eventos." />
                 </div>
               )}
             </li>
@@ -92,11 +103,17 @@ function Header() {
               onMouseEnter={() => handleMouseEnter('solucoes')}
               onMouseLeave={handleMouseLeave}
             >
-              <a href="#solucoes-empresariais">SOLUÇÕES EMPRESARIAIS <span className="dropdown-arrow">⌄</span></a>
+              {/* ATUALIZAÇÃO AQUI */}
+              <a href="#solucoes-empresariais" className="nav-link-with-arrow">
+                SOLUÇÕES EMPRESARIAIS
+                <span className="arr">
+                  <i className="ico-arr"></i>
+                </span>
+              </a>
               {openDropdown === 'solucoes' && (
                 <div className="dropdown-modal">
-                  <DropdownCard title="Treinamentos In-Company" description="Soluções personalizadas para sua empresa." link="#treinamentos-in-company" />
-                  <DropdownCard title="Palestras e Consultoria" description="Experiências transformadoras para equipes." link="#palestras-consultoria" />
+                  <DropdownCard title="Treinamentos In-Company" description="Soluções personalizadas para sua empresa." />
+                  <DropdownCard title="Palestras e Consultoria" description="Experiências transformadoras para equipes."/>
                 </div>
               )}
             </li>

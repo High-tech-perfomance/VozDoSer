@@ -1,0 +1,191 @@
+.footer-section {
+  background-color: #23232e; /* Cor de fundo principal do rodapé */
+  color: #e0e0e0; /* Cor do texto padrão para o rodapé */
+  padding-top: 50px; /* Padding no topo para dar espaço ao conteúdo */
+  font-family: sans-serif; /* Mantenha a fonte consistente com o resto do site */
+  box-shadow: 0 32px 32px 32px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content-wrapper {
+  max-width: auto; /* Largura máxima para o conteúdo principal */
+  margin: 0 auto; /* Centraliza o wrapper */
+  padding: 40px 20px 20px; /* Padding interno */
+  position: relative; /* Para garantir que o z-index funcione se necessário */
+}
+
+.footer-main-content {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr); /* 4 colunas: 1.5 para a primeira, 1fr para as outras */
+  gap: 40px; /* Espaçamento entre as colunas */
+  margin-bottom: 50px; /* Espaço antes do rodapé inferior */
+}
+
+.footer-column h3 {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-weight: bold;
+  font-family: FonteSecundaria;
+}
+
+/* Estilos da primeira coluna (Logo e Descrição) */
+.footer-about .footer-logo-container {
+  margin-bottom: 20px;
+}
+
+.footer-about .footer-logo-text {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: FontePrimaria;
+}
+
+.footer-about .footer-description {
+  font-size: 0.9em;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #ccc;
+  font-family: FonteSecundaria;
+}
+
+
+/* Icones redes sociais */
+
+.footer-social-links {
+  display: flex;
+  gap: 15px; /* Aumenta o espaço entre os ícones */
+}
+
+.footer-social-links a {
+  display: inline-flex; /* Para centralizar o ícone dentro do link */
+  justify-content: center;
+  align-items: center;
+  width: 44px; /* Largura do círculo */
+  height: 44px; /* Altura do círculo */
+  border-radius: 50%; /* Transforma em um círculo */
+  background-color: rgba(255, 255, 255, 0.08); /* Fundo sutil */
+  color: #ccc;
+  font-size: 1.1em; /* Tamanho do ícone */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-social-links a:hover {
+  background-color: #5227ff; /* Cor de fundono hover */
+  color: #ffffff; /* Ícone branco no hover */
+}
+
+/* Estilos para as colunas de links (Links Rápidos, Cursos) */
+
+
+
+/* Estilos para as colunas de links (Links Rápidos, Cursos) */
+.footer-links ul,
+.footer-programs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: FonteSecundaria;
+}
+
+.footer-links li,
+.footer-programs li {
+  margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-programs a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-programs a:hover {
+  color: #11bd92; /* Cor roxa hover */
+  text-decoration: underline;
+}
+
+/* Estilos da coluna de Contato */
+.footer-contact .contact-item {
+  display: flex;
+  align-items: flex-start; /* Alinha o texto com o topo do ícone */
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.footer-contact .contact-item i {
+  color: #5227ff; /* Cor para os ícones */
+  font-size: 1.1em;
+  margin-top: 3px; /* Pequeno ajuste para alinhar ícone com texto */
+  flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+/* Rodapé Inferior */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  flex-wrap: wrap; /* Para quebrar linha em telas pequenas */
+  gap: 20px; /* Espaçamento entre os elementos */
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 0.8em;
+  color: #aaa;
+  margin: 0;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-legal-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.8em;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #5227ff;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .footer-main-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main-content {
+    grid-template-columns: 1fr; /* 1 coluna em telas pequenas (empilha tudo) */
+    text-align: center; /* Centraliza o texto quando empilhado */
+  }
+
+  .footer-column {
+    align-items: center; /* Centraliza conteúdo da coluna */
+  }
+
+  .footer-about .footer-social-links {
+    justify-content: center; /* Centraliza ícones sociais */
+  }
+
+  .footer-links ul,
+  .footer-programs ul {
+    text-align: center; /* Centraliza links */
+  }
+
+  .footer-contact .contact-item {
+    justify-content: center; /* Centraliza itens de contato */
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+}

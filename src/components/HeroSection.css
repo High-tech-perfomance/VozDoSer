@@ -1,184 +1,67 @@
-/* src/components/HeroSection.css */
-
-.hero-section-container {
+.hero-container {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-  /* Garante que o texto fique por cima de tudo desde o início */
-  z-index: 10; /* Ajuste para um valor mais alto se necessário */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 }
 
-.hero-video {
-  position: absolute;
-  top: 50%; /* src/components/HeroSection.css */
-
-  .hero-section {
-    position: relative;
-    width: 100vw;
-    height: 100vh; /* Ocupa a altura total da viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Esconde qualquer coisa que transborde, importante para o vídeo/imagem */
-    color: #fff; /* Cor padrão do texto na hero section */
-    text-align: center;
-  }
-
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Substitua pelo seu vídeo ou imagem de fundo */
-    /* Exemplo com imagem de fundo */
-    background: url("/your-image-path.jpg") no-repeat center center/cover;
-    z-index: 1; /* Abaixo do conteúdo principal da hero */
-  }
-
-  .hero-content {
-    position: relative; /* Para ficar acima do background */
-    z-index: 2;
-    padding: 20px;
-    /* Ajuste para centralizar bem o conteúdo ou dar um layout específico */
-  }
-
-  /* -------------------- Animação de Zoom In para o Título -------------------- */
-
-  /* Define a animação */
-  @keyframes zoomInFade {
-    from {
-      transform: scale(0.8); /* Começa com 80% do tamanho normal */
-      opacity: 0; /* Começa totalmente transparente */
-    }
-    to {
-      transform: scale(1); /* Termina com o tamanho normal (100%) */
-      opacity: 1; /* Termina totalmente opaco */
-    }
-  }
-
-  /* Aplica a animação ao título */
-  .hero-title.zoom-in-text {
-    font-size: 4em; /* Tamanho da fonte final */
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #fff; /* Certifique-se de que a cor do texto seja visível no seu fundo */
-
-    /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
-    animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
-    animation-delay: 0.5s; /* Opcional: atraso antes de começar a animação, para o DotGrid aparecer primeiro */
-  }
-
-  /* Estilos para outros elementos na hero section (se houver) */
-  .hero-slogan {
-    font-size: 1.5em;
-    margin-bottom: 30px;
-  }
-
-  .hero-button {
-    background-color: #5227ff;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .hero-button:hover {
-    background-color: #6a40ff;
-  }
-
-  /* Media Queries para responsividade */
-  @media (max-width: 768px) {
-    .hero-title.zoom-in-text {
-      font-size: 2.5em; /* Reduz o tamanho da fonte em telas menores */
-    }
-    .hero-slogan {
-      font-size: 1.2em;
-    }
-  }
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  object-fit: cover;
-  opacity: 0; /* Começa invisível */
-  transition: opacity 1.5s ease-in-out; /* Transição para o vídeo aparecer */
-}
-
-.hero-video.visible {
-  opacity: 1; /* Torna visível quando a classe 'visible' é adicionada */
-}
-
-.hero-overlay {
+.loading-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 50, 100, 0.5);
-  z-index: 2;
-  opacity: 0; /* Começa invisível */
-  transition: opacity 1.5s ease-in-out; /* Transição para o overlay aparecer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.8s ease-out;
+  opacity: 1;
 }
 
-.hero-overlay.visible {
-  opacity: 1; /* Torna visível quando a classe 'visible' é adicionada */
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none; /* Impede que o overlay bloqueie cliques quando estiver invisível */
 }
 
-.hero-content {
-  position: relative;
-  z-index: 3; /* Fica acima do overlay */
-  /* Remove a opacidade e transformações iniciais daqui, pois o texto é visível por padrão */
-  opacity: 1; /* Visível por padrão */
-  transform: translateY(0); /* Posição inicial sem transformação */
-  /* Remove a transição de lazy loading para o texto, pois ele aparece imediatamente */
-  transition: none; /* Sem transição de entrada para o texto */
+.loading-overlay h1 {
+  color: #ffffff;
+  font-family: FontePrimaria; /* Substitua por sua fonte primária, se houver */
+  font-size: 10.5em;
+  font-weight: 200; /* Uma espessura mais fina para elegância */
+  letter-spacing: 4px;
+  text-transform: uppercase; 
 }
 
-.hero-content.loaded {
-  /* Não precisa de regras aqui, pois o texto já é visível */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo cubra todo o contêiner */
+  opacity: 0;
+  transition: opacity 1.5s ease-in; /* Transição um pouco mais lenta */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
-.hero-title {
-  font-size: 5em;
-  font-weight: bold;
-  /* font-family: 'NomeDaFonteDoCliente', sans-serif; */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  margin: 0;
-  padding: 0;
+.hero-video.visible {
+  opacity: 1;
 }
 
-/* Define a animação */
-@keyframes zoomInFade {
-  from {
-    transform: scale(0.8); /* Começa com 80% do tamanho normal */
-    opacity: 0; /* Começa totalmente transparente */
-  }
-  to {
-    transform: scale(1); /* Termina com o tamanho normal (100%) */
-    opacity: 1; /* Termina totalmente opaco */
-  }
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(4, 141, 136, 0.2); /* Filtro azul escuro semi-transparente */
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
 }
 
-/* Aplica a animação ao título */
-.hero-title.zoom-in-text {
-  font-size: 4em; /* Tamanho da fonte final */
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #fff; /* Certifique-se de que a cor do texto seja visível no seu fundo */
-
-  /* Aplica a animação: nome, duração, tipo de easing, atraso, número de vezes */
-  animation: zoomInFade 1.5s ease-out forwards; /* 1.5s de duração, suave, permanece no estado final */
+.video-overlay.visible {
+  opacity: 1;
 }

@@ -1,6 +1,5 @@
-// src/components/DropdownCard.jsx
 import React from 'react';
-import './DropdownCard.css'; // Vamos criar este arquivo de estilo a seguir
+import './DropdownCard.css';
 
 function DropdownCard({ title, description, link }) {
   return (
