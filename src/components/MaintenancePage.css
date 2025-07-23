@@ -5,19 +5,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ocupa a altura total da viewport */
-  background-color: #f0f2f5; /* Um fundo cinza claro */
-  color: #333; /* Cor do texto principal */
+  min-height: 100vh;
+  background-color: transparent; /* Fundo transparente para ver o vídeo e o grid */
+  color: #ffffff; /* Cor do texto principal para bom contraste */
   text-align: center;
   padding: 20px;
-  box-sizing: border-box; /* Garante que padding não adicione à largura/altura */
+  box-sizing: border-box;
+  position: relative; /* Garante que o z-index funcione */
+  z-index: 11; /* Acima do overlay de loading do Hero (z-index: 10) */
 }
 
 .maintenance-title {
   font-size: 3em; /* Tamanho do título */
-  color: #2c3e50; /* Cor mais escura para o título */
+  color: #ffffff; /* Cor branca para o título */
   margin-bottom: 20px;
-  font-family: 'Arial', sans-serif; /* Exemplo de fonte, ajuste conforme seu site */
+  font-family: FontePrimaria, 'Arial', sans-serif; /* Usando a fonte primária do site */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); /* Sombra para melhor legibilidade */
 }
 
 .maintenance-message {
@@ -25,17 +28,10 @@
   line-height: 1.6;
   max-width: 600px; /* Limita a largura da mensagem para melhor leitura */
   margin: 0 auto 30px auto; /* Centraliza a mensagem e adiciona espaçamento */
-  font-family: 'Arial', sans-serif; /* Exemplo de fonte */
+  font-family: FonteSecundaria, 'Arial', sans-serif; /* Usando a fonte secundária do site */
+  color: #e0e0e0; /* Um branco um pouco mais suave para a mensagem */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); /* Sombra para melhor legibilidade */
 }
-
-/* Opcional: Estilo para um ícone, se você decidir usar */
-/*
-.maintenance-icon {
-  font-size: 4em;
-  color: #e67e22; // Uma cor laranja para o ícone
-  margin-bottom: 20px;
-}
-*/
 
 /* Responsividade básica para telas menores */
 @media (max-width: 768px) {

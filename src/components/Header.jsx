@@ -45,14 +45,14 @@ function Header() {
         <nav className="main-nav">
           <ul className="nav-list">
 
-            <li className="nav-item"><a href="#home">HOME</a></li>
+            <li className="nav-item"><a href="/manutencao">HOME</a></li>
             <li
               className={`nav-item has-dropdown ${openDropdown === 'clinica' ? 'active' : ''}`}
               onMouseEnter={() => handleMouseEnter('clinica')}
               onMouseLeave={handleMouseLeave}
             >
               
-              <a href="#clinica" className="nav-link-with-arrow">
+              <a href="/manutencao" className="nav-link-with-arrow">
                 CLÍNICA
                 <span className="arr">
                   <i className="ico-arr"></i>
@@ -85,7 +85,7 @@ function Header() {
               onMouseLeave={handleMouseLeave}
             >
 
-              <a href="#escola" className="nav-link-with-arrow">
+              <a href="/manutencao" className="nav-link-with-arrow">
                 ESCOLA
                 <span className="arr">
                   <i className="ico-arr"></i>
@@ -106,7 +106,7 @@ function Header() {
               onMouseLeave={handleMouseLeave}
             >
 
-              <a href="#solucoes-empresariais" className="nav-link-with-arrow">
+              <a href="/manutencao" className="nav-link-with-arrow">
                 SOLUÇÕES EMPRESARIAIS
                 <span className="arr">
                   <i className="ico-arr"></i>
@@ -120,8 +120,8 @@ function Header() {
               )}
             </li>
 
-            <li className="nav-item"><a href="#equipe">EQUIPE</a></li>
-            <li className="nav-item"><a href="#contato">CONTATO</a></li>
+            <li className="nav-item"><a href="/manutencao">EQUIPE</a></li>
+            <li className="nav-item"><a href="/manutencao">CONTATO</a></li>
           </ul>
         </nav>
         <div className="profile-icon">

@@ -34,9 +34,9 @@ function Footer() {
               <li><a href="/">Home</a></li>
               <li><a href="/manutencao">Clínica</a></li>
               <li><a href="/manutencao">Escola</a></li>
-              <li><a href="#">Soluções Empresariais</a></li>
-              <li><a href="#">Equipe</a></li>
-              <li><a href="#">Contato</a></li>
+              <li><a href="/manutencao">Soluções Empresariais</a></li>
+              <li><a href="/manutencao">Equipe</a></li>
+              <li><a href="/manutencao">Contato</a></li>
             </ul>
           </div>
 
@@ -44,14 +44,14 @@ function Footer() {
           <div className="footer-column footer-programs">
             <h3>Serviços</h3>
             <ul>
-              <li><a href="#">Terapia da Comunicação</a></li>
-              <li><a href="#">Carreira com Propósito</a></li>
-              <li><a href="#">Consultoria Financeira</a></li>
-              <li><a href="#">Desbloqueio Energético</a></li>
-              <li><a href="#">Fonoterapia</a></li>
-              <li><a href="#">Aula de Música e Canto</a></li>
-              <li><a href="#">Treinamento de Expressividade e Performance</a></li>
-              <li><a href="#">Aula de Inglês</a></li>
+              <li><a href="/manutencao">Terapia da Comunicação</a></li>
+              <li><a href="/manutencao">Carreira com Propósito</a></li>
+              <li><a href="/manutencao">Consultoria Financeira</a></li>
+              <li><a href="/manutencao">Desbloqueio Energético</a></li>
+              <li><a href="/manutencao">Fonoterapia</a></li>
+              <li><a href="/manutencao">Aula de Música e Canto</a></li>
+              <li><a href="/manutencao">Treinamento de Expressividade e Performance</a></li>
+              <li><a href="/manutencao">Aula de Inglês</a></li>
             </ul>
           </div>
 
