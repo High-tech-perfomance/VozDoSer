@@ -1,231 +1,419 @@
+/* IntegrationSection.css */
+
+/* Seção principal de integração (Container das duas colunas) */
 .integration-section {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 80px 40px;
-  width: 100%;
-  max-width: 1400px;
-  margin: auto;
-  gap: 60px;
-  background-color: transparent;
-  overflow: hidden;
-  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    gap: 60px;
+    background-color: transparent;
+    overflow: hidden;
 }
 
-/* Estilo para as colunas */
+/* Estilo base para as colunas individuais (Agenda e Instagram) */
 .integration-column {
-  flex: 1;
-  max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Classe para a animação de entrada quando a coluna se torna visível */
 .integration-column.fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
+/* Atraso na animação para a coluna do Instagram */
 .instagram-column.fade-in-up {
-  transition-delay: 0.3s;
+    transition-delay: 0.3s;
 }
 
+/* Título das colunas */
 .integration-column h2 {
-  font-size: 2.5em;
-  color: #333;
-  /* margin: auto; */
-}
-
-/* Estilo para a coluna da Agenda */
-.agenda-column {
-  background-color: #f0f0f0; /* Fundo consistente com a outra coluna */
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra consistente */
-  padding: 40px; /* Padding consistente */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-}
-
-.agenda-column .agenda-events {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Espaçamento entre os novos cards */
-}
-
-/* NOVO ESTILO PARA OS CARDS DE EVENTOS */
-.agenda-card {
-  background-color: #ffffff; /* Fundo branco sólido para o card */
-  padding: 15px 20px; /* Padding interno do card */
-  border-radius: 12px; /* Bordas arredondadas para o card */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para o card */
-  display: flex; /* Flexbox para alinhar data e detalhes */
-  align-items: center; /* Alinha verticalmente */
-  gap: 20px; /* Espaçamento entre o destaque de data e os detalhes */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 100%; /* Ocupa a largura total do contêiner */
-}
-
-.agenda-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Estilo do elemento de destaque da data */
-.date-highlight {
-  background-color: #5227FF; /* Cor de destaque para a data (roxa) */
-  color: #fff;
-  padding: 10px 15px;
-  border-radius: 8px; /* Bordas arredondadas para o destaque da data */
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0; /* Impede que ele encolha */
-  min-width: 80px; /* Largura mínima para a caixa da data */
-}
-
-.date-highlight .day {
-  font-size: 1.8em;
-  line-height: 1; /* Para evitar espaçamento extra */
-}
-
-.date-highlight .month {
-  font-size: 0.8em;
-  text-transform: uppercase;
-  line-height: 1;
-  margin-top: 5px;
-}
-
-/* Estilo dos detalhes do evento (título e botão) */
-.event-details {
-  flex: 1; /* Ocupa o restante do espaço */
-  display: flex;
-  justify-content: space-between; /* Título à esquerda, botão à direita */
-  align-items: center; /* Alinha verticalmente */
-  gap: 15px; /* Espaçamento entre título e botão */
-}
-
-.event-details .event-title {
-  font-size: 1.4em;
-  color: #333;
-  margin: 0; /* Remove margem padrão do h3 */
-  text-align: left; /* Garante que o título se alinhe à esquerda */
-}
-
-/* Estilo do botão de inscrição */
-.enroll-button {
-  background-color: #5227FF; /* Cor do botão (roxa) */
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px; /* Bordas arredondadas para o botão */
-  font-size: 0.95em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  flex-shrink: 0; /* Impede que o botão encolha */
-}
-
-.enroll-button:hover {
-  background-color: #6a40ff;
-  transform: translateY(-2px);
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: FontePrimaria;
 }
 
 /* ---------------------------------------------------- */
-/* Estilos da coluna do Instagram (permanece inalterada) */
+/* Estilos da Coluna da Agenda */
+/* ---------------------------------------------------- */
+.agenda-column {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    padding: 40px;
+}
+
+/* Container para os cards de eventos da agenda */
+.agenda-column .agenda-events {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo para cada card de evento individual */
+.agenda-card {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Organiza o cabeçalho e a descrição em coluna */
+    gap: 15px; /* Espaço entre o cabeçalho e a descrição */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.agenda-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do card quando a descrição está visível */
+.agenda-card.active-description-visible {
+    background-color: #fbf5ed;
+    border-color: #122120;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* NOVO: Container do cabeçalho do evento (data, título, botão) */
+.event-header {
+    display: flex; /* Transforma em flexbox */
+    flex-direction: row; /* Alinha os itens em linha */
+    align-items: center; /* Alinha verticalmente os itens ao centro */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    width: 100%; /* Ocupa a largura total do card */
+    gap: 15px; /* Espaço entre os itens do cabeçalho */
+    flex-wrap: wrap; /* PERMITE QUE OS ITENS QUEBREM A LINHA SE NÃO HOUVER ESPAÇO */
+}
+
+/* Bloco de destaque da data e mês */
+.date-highlight {
+    background-color: #ffdb58;
+    color: #383838;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Impede que este item encolha, mantendo seu tamanho fixo */
+    min-width: 80px; /* Largura mínima para o bloco de data */
+    text-align: center;
+}
+
+/* Estilo para o número do dia */
+.date-highlight .day {
+    font-size: 1.8em;
+    line-height: 1;
+}
+
+/* Estilo para o mês */
+.date-highlight .month {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+/* Estilo para o horário curto exibido junto à data */
+.date-highlight .event-time-short {
+    font-size: 0.7em;
+    margin-top: 5px;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+/* Título do evento (agora dentro de event-header) */
+.event-header .event-title {
+    font-size: 1.4em;
+    color: #333;
+    margin: 0;
+    text-align: left;
+    flex: 1; /* Permite que o título ocupe o espaço restante */
+    min-width: 120px; /* Adicionado um min-width para o título para evitar que ele encolha demais */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Botão de inscrição (agora dentro de event-header) */
+.event-header .enroll-button {
+    background-color: #ffdb58;
+    color: #383838;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Impede que o botão encolha */
+    margin-left: auto; /* Empurra o botão para a direita se houver espaço */
+    margin-top: 0;
+}
+
+/* Efeito ao passar o mouse sobre o botão de inscrição */
+.event-header .enroll-button:hover {
+    background-color: #bdaa07;
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------- */
+/* Estilos para o Container da Descrição do Evento */
+/* ---------------------------------------------------- */
+.event-description-container {
+    width: 100%;
+    margin-top: 5px; /* Ajuste se necessário para espaçamento entre header e descrição */
+}
+
+/* Estilo para o parágrafo da descrição do evento */
+.event-description {
+    margin-top: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+/* Estilos para tags HTML dentro da descrição */
+.event-description b,
+.event-description strong {
+    font-weight: bold;
+}
+
+.event-description i,
+.event-description em {
+    font-style: italic;
+}
+
+.event-description u {
+    text-decoration: underline;
+}
+
+.event-description ul,
+.event-description ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.event-description li {
+    margin-bottom: 5px;
+    list-style-position: inside;
+}
+
+.event-description ul li {
+    list-style-type: disc;
+}
+
+.event-description ol li {
+    list-style-type: decimal;
+}
+
+/* ---------------------------------------------------- */
+/* Estilos da Coluna do Instagram */
 /* ---------------------------------------------------- */
 .instagram-column {
-    background-color: #f0f0f0; /* Fundo mais simples para a coluna do Instagram */
+    background-color: #f0f0f0;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.instagram-column .instagram-placeholder {
-  background-color: #f8f8f8;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 400px;
+.instagram-column p {
+    color: #555;
+    margin-bottom: 25px;
 }
 
-.instagram-column img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.instagram-link {
-  background-color: #E1306C;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.instagram-link:hover {
-  background-color: #c7295f;
-}
-
-/* Responsividade */
-@media (max-width: 992px) {
-  .integration-section {
+/* Estilo para o contêiner do embed do Instagram */
+.instagram-placeholder {
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
     flex-direction: column;
-    padding: 60px 20px;
-    gap: 40px;
-  }
-
-  .integration-column {
-    max-width: 100%;
-    padding: 30px; /* Ajusta padding das colunas empilhadas */
-  }
-
-  .integration-column h2 {
-    font-size: 2em;
-  }
-
-  .agenda-card {
-    flex-direction: column; /* Empilha data e detalhes em telas menores */
-    align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    gap: 10px;
-  }
-
-  .event-details {
-    flex-direction: column; /* Título e botão empilham */
-    align-items: flex-start;
+    align-items: center;
+    gap: 20px;
     width: 100%;
-    gap: 10px;
-  }
-
-  .event-details .event-title {
-    font-size: 1.2em;
-  }
-
-  .enroll-button {
-    width: 100%; /* Botão ocupa largura total quando empilhado */
-  }
+    max-width: 400px;
+    margin-bottom: 20px;
 }
 
+/* Estilo para o link "Visitar Instagram" */
+.instagram-link {
+    background-color: #E1306C;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+/* Efeito ao passar o mouse sobre o link do Instagram */
+.instagram-link:hover {
+    background-color: #c7295f;
+}
+
+/* ---------------------------------------------------- */
+/* Responsividade */
+/* ---------------------------------------------------- */
+
+/* Para telas médias (tablets e laptops pequenos) */
+@media (max-width: 992px) {
+    .integration-section {
+        flex-direction: column;
+        padding: 60px 20px;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .integration-column {
+        max-width: 100%;
+        padding: 30px;
+        text-align: left;
+    }
+
+    .integration-column h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    /* Ajustes para os cards da agenda em telas pequenas */
+    .agenda-card {
+        padding: 15px;
+        gap: 10px;
+    }
+
+    /* O event-header agora usa flex-wrap em vez de flex-direction: column */
+    .event-header {
+        flex-direction: row; /* Volta a ser row por padrão, mas flex-wrap vai gerenciar a quebra */
+        align-items: center; /* Alinha no centro verticalmente */
+        justify-content: space-between; /* Mantém a distribuição do espaço */
+        gap: 10px; /* Reduz o gap entre os itens do cabeçalho em telas menores */
+    }
+
+    /* Data e Título em telas menores */
+    .date-highlight {
+        flex-direction: column; /* Volta a empilhar Dia/Mês/Hora na data */
+        gap: 0px; /* Sem gap entre dia/mês/hora */
+        min-width: unset;
+        width: auto;
+        padding: 8px 12px;
+        align-self: flex-start; /* Alinha a data ao início do container flex */
+        order: 0; /* Garante que a data sempre venha primeiro */
+    }
+
+    .date-highlight .day {
+        font-size: 1.5em;
+    }
+
+    .date-highlight .month {
+        font-size: 0.7em;
+        margin-top: 0;
+    }
+
+    .date-highlight .event-time-short {
+        font-size: 0.65em;
+        margin-top: 5px; /* Adiciona margem acima do horário */
+        margin-left: 0;
+    }
+
+    .event-header .event-title {
+        font-size: 1.2em;
+        text-align: left;
+        flex: 1; /* Permite que o título ocupe o máximo de espaço */
+        min-width: unset; /* Remove min-width para maior flexibilidade */
+        order: 1; /* Garante que o título venha depois da data */
+    }
+
+    .event-header .enroll-button {
+        width: auto; /* Permite que o botão tenha largura automática */
+        padding: 8px 15px;
+        font-size: 0.85em;
+        margin-top: 0;
+        align-self: center; /* Centraliza o botão verticalmente */
+        order: 2; /* Garante que o botão venha por último */
+    }
+
+    /* Se a linha quebrar, o botão e/ou o título podem ir para a próxima linha.
+       Ajuste este bloco se quiser que o botão sempre fique à direita ou que o título ocupe a linha inteira. */
+    .event-header > *:nth-child(2) { /* Título */
+        flex-grow: 1; /* Garante que o título ocupe o máximo de espaço possível */
+    }
+    .event-header > *:nth-child(3) { /* Botão */
+        flex-shrink: 0; /* Impede que o botão encolha */
+        margin-left: auto; /* Empurra o botão para a direita */
+    }
+
+    /* Instagram embed placeholder */
+    .instagram-placeholder {
+        padding: 20px;
+        max-width: 90%;
+    }
+}
+
+/* Para telas pequenas (smartphones) */
 @media (max-width: 768px) {
-  .integration-section {
-    padding: 40px 15px;
-  }
-  .integration-column h2 {
-    font-size: 1.8em;
-  }
-  .agenda-card, .instagram-placeholder {
-    padding: 15px;
-  }
+    .integration-section {
+        padding: 40px 15px;
+    }
+    .integration-column h2 {
+        font-size: 1.8em;
+    }
+    .agenda-card, .instagram-placeholder {
+        padding: 12px;
+    }
+
+    .date-highlight {
+        padding: 6px 10px;
+    }
+
+    .date-highlight .day {
+        font-size: 1.3em;
+    }
+
+    .event-header .event-title {
+        font-size: 1.1em;
+    }
+
+    .event-header .enroll-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+
+    .event-description {
+        font-size: 0.85rem;
+    }
+
+    /* Força o botão para a próxima linha em telas muito pequenas, se o espaço não for suficiente */
+    .event-header .enroll-button {
+        width: 100%; /* Botão ocupa toda a largura em telas muito pequenas */
+        margin-top: 10px; /* Espaçamento acima do botão quando ele quebra a linha */
+    }
+    .event-header .event-title {
+        width: calc(100% - 100px); /* Ajusta a largura do título para dar espaço à data */
+        /* Isso é um valor arbitrário, pode ser ajustado. */
+    }
 }

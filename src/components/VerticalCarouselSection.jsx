@@ -4,80 +4,86 @@ import './VerticalCarouselSection.css';
 
 // Dados dos slides (adapte com o seu conteúdo real)
 const slidesData = [
-  { 
-    id: 'slide_1', 
-    title: 'Clínica', 
+  {
+    id: 'clinica_slide', // IDs específicos
+    title: 'Clínica',
     content: [
       'Terapia da Comunicação (sessão individual, de casal ou família).',
       'Desenvolvimento pessoal: consultoria financeira, carreira com propósito, aulas de inglês e desbloqueio energético.',
       'Cuidado artístico: fonoterapia, canto, instrumentos e oficinas de expressividade.'
-    ]
+    ],
+    link: '/nossa-clinica',
+    linkText: 'Saiba mais sobre a Clínica'
   },
-  { 
-    id: 'slide_2', 
-    title: 'Escola', 
+  {
+    id: 'escola_slide', // IDs específicos
+    title: 'Escola',
     content: [
       'Workshop Voz do Ser (comunicação, relacionamento e autoconhecimento na prática).',
       'Formação de Terapeutas da Comunicação (Metodologia Comunicação com Propósito).',
       'Ser em Cena (curso livre de teatro com autoconhecimento).',
       'Treinamento de expressividade e performance.'
-    ]
+    ],
+    link: '/nossa-escola',
+    linkText: 'Conheça nossa Escola'
   },
-  { 
-    id: 'slide_3', 
-    title: 'Soluções empresariais e educacionais', 
+  {
+    id: 'solucoes_slide', // IDs específicos
+    title: 'Soluções empresariais e educacionais',
     content: [
       'Desenvolvimento de soft skills, cultura organizacional e ambientes emocionalmente seguros.',
       'Treinamentos de equipe e capacitação de lideranças e educadores.',
       'Palestras, workshops, conversas guiadas e terapia da comunicação para empresas e escolas.'
-    ]
+    ],
+    link: '/solucoes-empresariais',
+    linkText: 'Descubra nossas Soluções'
   },
 ];
 
 function VerticalCarouselSection() {
-  const sectionRef = useRef(null); // Ref para a seção inteira para a animação de entrada
-  const slidesContainerRef = useRef(null); // Ref para o div.slides (o contêiner rolável)
-  const slideRefs = useRef({}); // Refs para cada slide individual
-  const [activeSlideId, setActiveSlideId] = useState(slidesData[0].id); // Estado para o slide ativo
-  const [isVisible, setIsVisible] = useState(false); // Estado para a animação de fade-in
+  const sectionRef = useRef(null);
+  const slidesContainerRef = useRef(null);
+  const slideRefs = useRef({}); // Objeto para armazenar referências de cada slide pelo ID
+  const [activeSlideId, setActiveSlideId] = useState(slidesData[0].id);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Função para rolar para um slide específico
+  // Função para rolar para o slide específico
   const scrollToSlide = (id) => {
     const targetSlide = slideRefs.current[id];
-    if (targetSlide) {
-      // Ajusta a rolagem para que o slide fique no topo do contêiner rolável
-      // O behavior: 'smooth' faz a rolagem suave
-      slidesContainerRef.current.scrollTo({
-        top: targetSlide.offsetTop,
+    const slidesContainer = slidesContainerRef.current;
+
+    if (targetSlide && slidesContainer) {
+      // Calcula a posição do topo do slide em relação ao topo do contêiner de rolagem
+      // Isso é mais preciso do que apenas targetSlide.offsetTop
+      const scrollTarget = targetSlide.offsetTop - slidesContainer.offsetTop;
+
+      slidesContainer.scrollTo({
+        top: scrollTarget,
         behavior: 'smooth',
       });
-      setActiveSlideId(id); // Atualiza o estado ativo imediatamente ao clicar
+      // Atualiza o slide ativo imediatamente ao clicar, para feedback visual
+      setActiveSlideId(id);
     }
   };
 
-  // useEffect para configurar o IntersectionObserver para o Scrollspy
   useEffect(() => {
+    // Observer para detecção do slide ativo
     const observerOptions = {
-      root: slidesContainerRef.current, // O contêiner de slides é o elemento raiz para a observação
-      // Define a "linha de ativação" um pouco acima do centro (40% do topo).
-      // Isso garante que apenas um slide seja considerado "intersecting" por vez,
-      // resolvendo o problema de pular itens ao rolar para cima.
-      rootMargin: '-40% 0px -60% 0px',
-      threshold: 0, // Dispara assim que o slide toca a linha de ativação.
+      root: slidesContainerRef.current, // O contêiner de slides é o viewport para a observação
+      rootMargin: '-50% 0px -50% 0px', // Ajustado para centralizar a detecção, ideal para scroll-snap
+      threshold: 0, // Mesmo um pequeno pedaço do slide no centro já o ativa
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Se o slide estiver visível e no terço superior/metade da área de rolagem
-          // Esta lógica pode precisar de ajuste fino dependendo do layout exato
-          // e da altura dos seus slides. O rootMargin ajuda bastante.
+          // Se o slide estiver intersecting (e o rootMargin centraliza a detecção), defina-o como ativo
           setActiveSlideId(entry.target.id);
         }
       });
     }, observerOptions);
 
-    // Observar cada slide
+    // Observa cada slide
     slidesData.forEach(slide => {
       const slideElement = slideRefs.current[slide.id];
       if (slideElement) {
@@ -85,24 +91,24 @@ function VerticalCarouselSection() {
       }
     });
 
-    // Limpeza: desconectar o observer quando o componente desmontar
+    // Limpeza do observer
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, []); // Dependência vazia para rodar apenas uma vez na montagem
 
-  // useEffect para a animação de fade-in da seção
   useEffect(() => {
+    // Observer para a animação de entrada da seção (mantido como estava)
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.unobserve(entry.target); // Para de observar após a primeira vez
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 } // Aciona quando 10% do elemento está visível
+      { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
@@ -131,8 +137,8 @@ function VerticalCarouselSection() {
                 href={`#${slide.id}`}
                 className={activeSlideId === slide.id ? 'active' : ''}
                 onClick={(e) => {
-                  e.preventDefault(); // Evita o comportamento padrão do link
-                  scrollToSlide(slide.id);
+                  e.preventDefault(); // Previne o comportamento padrão do link
+                  scrollToSlide(slide.id); // Rola para o slide correto
                 }}
               >
                 {slide.title}
@@ -145,9 +151,9 @@ function VerticalCarouselSection() {
         {slidesData.map((slide) => (
           <div
             key={slide.id}
-            id={slide.id} // ID para referência e navegação
+            id={slide.id} // É crucial que o ID no HTML corresponda ao ID em slidesData
             className="slide"
-            ref={(el) => (slideRefs.current[slide.id] = el)} // Armazena a ref do slide
+            ref={(el) => (slideRefs.current[slide.id] = el)} // Armazena a referência do elemento
           >
             <div className="inner-content">
               <h1>{slide.title}</h1>
@@ -156,6 +162,11 @@ function VerticalCarouselSection() {
                   <li key={index}>{item}</li>
                 ))}
               </ul>
+              {slide.link && slide.linkText && (
+                <a href={slide.link} className="slide-button">
+                  {slide.linkText}
+                </a>
+              )}
             </div>
           </div>
         ))}

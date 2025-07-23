@@ -19,10 +19,11 @@ function Footer() {
               Até que todos expressem quem somos!
             </p>
             <div className="footer-social-links">
-              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Spotify"><i className="fab fa-spotify"></i></a>
-              <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+              {/* LINKS DAS REDES SOCIAIS COM target="_blank" e rel="noopener noreferrer" */}
+              <a href="https://www.facebook.com/vozdoser/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/vozdoser/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="https://open.spotify.com/show/5ySixrzYEBhGUMnSESecJT?si=fcfb13b26f994fbb" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><i className="fab fa-spotify"></i></a> {/* URL de exemplo, substitua pelo seu perfil do Spotify */}
+              <a href="https://www.youtube.com/@vozdoser" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i className="fab fa-youtube"></i></a> {/* URL de exemplo, substitua pelo seu canal do YouTube */}
             </div>
           </div>
 
@@ -30,9 +31,9 @@ function Footer() {
           <div className="footer-column footer-links">
             <h3>Links Rápidos</h3>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Clínica</a></li>
-              <li><a href="#">Escola</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/manutencao">Clínica</a></li>
+              <li><a href="/manutencao">Escola</a></li>
               <li><a href="#">Soluções Empresariais</a></li>
               <li><a href="#">Equipe</a></li>
               <li><a href="#">Contato</a></li>
@@ -63,11 +64,11 @@ function Footer() {
             </p>
             <p className="contact-item">
               <i className="fas fa-phone-alt"></i>
-              <span>(11) telefone</span>
+              <span>(11) 97677-7930</span>
             </p>
             <p className="contact-item">
               <i className="fas fa-envelope"></i>
-              <span>info@vozdoser.com</span>
+              <span>falecomvozdoser@gmail.com</span>
             </p>
           </div>
         </div>

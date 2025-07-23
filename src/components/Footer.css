@@ -1,191 +1,290 @@
+/* Footer.css */
+
 .footer-section {
-  background-color: #193c3a; /* Cor de fundo principal do rodapé */
-  color: #e0e0e0; /* Cor do texto padrão para o rodapé */
-  padding-top: 50px; /* Padding no topo para dar espaço ao conteúdo */
-  font-family: sans-serif; /* Mantenha a fonte consistente com o resto do site */
-  box-shadow: 0 32px 32px 32px rgba(0, 0, 0, 0.5);
+    background-color: #193c3a; /* Cor de fundo principal do rodapé */
+    color: #e0e0e0; /* Cor do texto padrão para o rodapé */
+    padding-top: 50px; /* Padding no topo para dar espaço ao conteúdo */
+    font-family: sans-serif; /* Mantenha a fonte consistente com o resto do site */
+    box-shadow: 0 32px 32px 32px rgba(0, 0, 0, 0.5);
+    padding-bottom: 20px; /* Adiciona um padding inferior para o conteúdo ficar acima da sombra */
+    width: 100%; /* Garante que a seção ocupe 100% da largura da viewport */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
 }
 
 .footer-content-wrapper {
-  max-width: auto; /* Largura máxima para o conteúdo principal */
-  margin: 0 auto; /* Centraliza o wrapper */
-  padding: 40px 20px 20px; /* Padding interno */
-  position: relative; /* Para garantir que o z-index funcione se necessário */
+    max-width: 1200px; /* Largura máxima para o conteúdo principal em telas grandes */
+    margin: 0 auto; /* Centraliza o wrapper quando há max-width */
+    padding: 40px 20px 20px; /* Padding interno: topo, laterais, fundo */
+    position: relative;
+    /* NOVO: Box-sizing para incluir padding na largura */
+    box-sizing: border-box;
 }
 
 .footer-main-content {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr); /* 4 colunas: 1.5 para a primeira, 1fr para as outras */
-  gap: 40px; /* Espaçamento entre as colunas */
-  margin-bottom: 50px; /* Espaço antes do rodapé inferior */
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer-column h3 {
-  font-size: 1.2em;
-  color: #ffffff;
-  margin-bottom: 25px;
-  font-weight: bold;
-  font-family: FonteSecundaria;
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-family: FonteSecundaria;
+    text-align: left;
+    width: 100%;
 }
 
-/* Estilos da primeira coluna (Logo e Descrição) */
 .footer-about .footer-logo-container {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
 }
 
 .footer-about .footer-logo-text {
-  font-size: 2.8em;
-  font-weight: bold;
-  color: #ffffff;
-  font-family: FontePrimaria;
+    font-size: clamp(1.8em, 4vw, 2.8em);
+    font-weight: bold;
+    color: #ffffff;
+    font-family: FontePrimaria;
 }
 
 .footer-about .footer-description {
-  font-size: 0.9em;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  color: #ccc;
-  font-family: FonteSecundaria;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #ccc;
+    font-family: FonteSecundaria;
+    text-align: left;
 }
 
-
-/* Icones redes sociais */
-
 .footer-social-links {
-  display: flex;
-  gap: 15px; /* Aumenta o espaço entre os ícones */
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .footer-social-links a {
-  display: inline-flex; /* Para centralizar o ícone dentro do link */
-  justify-content: center;
-  align-items: center;
-  width: 44px; /* Largura do círculo */
-  height: 44px; /* Altura do círculo */
-  border-radius: 50%; /* Transforma em um círculo */
-  background-color: rgba(255, 255, 255, 0.08); /* Fundo sutil */
-  color: #ccc;
-  font-size: 1.1em; /* Tamanho do ícone */
-  transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ccc;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-social-links a:hover {
-  background-color: #11bd92; /* Cor de fundono hover */
-  color: #ffffff; /* Ícone branco no hover */
+    background-color: #11bd92;
+    color: #ffffff;
 }
 
-/* Estilos para as colunas de links (Links Rápidos, Cursos) */
-
-
-
-/* Estilos para as colunas de links (Links Rápidos, Cursos) */
 .footer-links ul,
 .footer-programs ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-family: FonteSecundaria;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: FonteSecundaria;
+    width: 100%;
+    text-align: left;
 }
 
 .footer-links li,
 .footer-programs li {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .footer-links a,
 .footer-programs a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: color 0.3s ease;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover,
 .footer-programs a:hover {
-  color: #11bd92; /* Cor roxa hover */
-  text-decoration: underline;
+    color: #11bd92;
+    text-decoration: underline;
 }
 
-/* Estilos da coluna de Contato */
 .footer-contact .contact-item {
-  display: flex;
-  align-items: flex-start; /* Alinha o texto com o topo do ícone */
-  gap: 10px;
-  margin-bottom: 15px;
-  font-size: 0.9em;
-  color: #ccc;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #ccc;
+    width: 100%;
+    text-align: left;
 }
 
 .footer-contact .contact-item i {
-  color: #5227ff; /* Cor para os ícones */
-  font-size: 1.1em;
-  margin-top: 3px; /* Pequeno ajuste para alinhar ícone com texto */
-  flex-shrink: 0; /* Impede que o ícone encolha */
+    color: #bf7825;
+    font-size: 1.1em;
+    margin-top: 3px;
+    flex-shrink: 0;
 }
 
-/* Rodapé Inferior */
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
-  padding-top: 5px;
-  padding-bottom: 5px;
-  flex-wrap: wrap; /* Para quebrar linha em telas pequenas */
-  gap: 20px; /* Espaçamento entre os elementos */
-  text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .footer-copyright {
-  font-size: 0.8em;
-  color: #aaa;
-  margin: 0;
+    font-size: 0.8em;
+    color: #aaa;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .footer-legal-links {
-  display: flex;
-  gap: 25px;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .footer-legal-links a {
-  color: #aaa;
-  text-decoration: none;
-  font-size: 0.8em;
-  transition: color 0.3s ease;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.8em;
+    transition: color 0.3s ease;
 }
 
 .footer-legal-links a:hover {
-  color: #5227ff;
+    color: #5227ff;
 }
 
+/* ---------------------------------------------------- */
 /* Responsividade */
+/* ---------------------------------------------------- */
+
+/* Para telas médias (992px e abaixo) */
 @media (max-width: 992px) {
-  .footer-main-content {
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
-  }
+    .footer-content-wrapper {
+        /* Remove o max-width para que o padding controle a largura em telas menores */
+        max-width: 100%; /* NOVO */
+        padding: 30px 20px 15px; /* Ajusta o padding lateral para 20px */
+    }
+
+    .footer-main-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .footer-column {
+        align-items: flex-start;
+    }
+
+    .footer-about .footer-social-links {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-copyright {
+        text-align: center;
+    }
+
+    .footer-legal-links {
+        justify-content: center;
+        gap: 15px;
+    }
 }
 
+/* Para telas pequenas (768px e abaixo) */
 @media (max-width: 768px) {
-  .footer-main-content {
-    grid-template-columns: 1fr; /* 1 coluna em telas pequenas (empilha tudo) */
-    text-align: center; /* Centraliza o texto quando empilhado */
-  }
+    .footer-content-wrapper {
+        padding: 20px 15px 10px; /* Ajusta o padding lateral para 15px */
+    }
 
-  .footer-column {
-    align-items: center; /* Centraliza conteúdo da coluna */
-  }
+    .footer-main-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
 
-  .footer-about .footer-social-links {
-    justify-content: center; /* Centraliza ícones sociais */
-  }
+    .footer-column {
+        align-items: center; /* Centraliza o conteúdo da coluna quando empilhado */
+        text-align: center; /* Centraliza o texto dentro da coluna */
+    }
 
-  .footer-links ul,
-  .footer-programs ul {
-    text-align: center; /* Centraliza links */
-  }
+    .footer-column h3 {
+        text-align: center;
+    }
 
-  .footer-contact .contact-item {
-    justify-content: center; /* Centraliza itens de contato */
-  }
+    .footer-about .footer-logo-container,
+    .footer-about .footer-description {
+        text-align: center;
+    }
 
-  .footer-bottom {
-    text-align: center;
-  }
+    .footer-about .footer-social-links {
+        justify-content: center;
+    }
+
+    .footer-links ul,
+    .footer-programs ul {
+        text-align: center;
+    }
+
+    .footer-contact .contact-item {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-contact .contact-item span {
+        text-align: center;
+    }
+}
+
+/* Para telas muito pequenas (480px e abaixo) */
+@media (max-width: 480px) {
+    .footer-content-wrapper {
+        padding: 15px 10px 5px; /* Ajusta o padding lateral para 10px */
+    }
+
+    .footer-main-content {
+        gap: 20px;
+    }
+
+    .footer-about .footer-logo-text {
+        font-size: 1.5em;
+    }
+
+    .footer-column h3 {
+        font-size: 1.1em;
+    }
+
+    .footer-links a,
+    .footer-programs a,
+    .footer-contact .contact-item,
+    .footer-copyright,
+    .footer-legal-links a {
+        font-size: 0.8em;
+    }
 }

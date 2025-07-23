@@ -7,6 +7,7 @@ import DotGrid from './components/DotGrid';
 import VerticalCarouselSection from './components/VerticalCarouselSection';
 import IntegrationSection from './components/IntegrationSection';
 import Footer from './components/Footer';
+import MaintenancePage from './components/MaintenancePage';
 
 function App() {
   const [mainContentVisible, setMainContentVisible] = useState(false);
@@ -29,7 +30,6 @@ function App() {
         baseColor="rgba(25, 60, 58, 0.1)"
         activeColor="rgba(25, 60, 58, 1)"
       />
-
       <HeroSection />
 
       {mainContentVisible && (

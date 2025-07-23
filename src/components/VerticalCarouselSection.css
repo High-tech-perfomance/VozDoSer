@@ -1,209 +1,379 @@
-/* Reset de alguns elementos para consistência */
+/* VerticalCarouselSection.css */
+
+/* Reset e estilos base para consistência */
 p {
-  line-height: 1.4;
+    line-height: 1.4;
 }
 
 a {
-  color: inherit;
-  text-decoration: none; /* Adicionado para remover sublinhado padrão */
+    color: inherit;
+    text-decoration: none; /* Remove sublinhado padrão dos links */
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0; /* Adicionado para remover margens padrão */
+    list-style: none; /* Remove marcadores de lista padrão */
+    padding: 0;
+    margin: 0; /* Remove margens padrão */
 }
 
+/* Espaçamento entre itens de lista (irmãos) */
 ul > * + * {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 li {
-  display: block;
+    display: block; /* Garante que os itens da lista ocupem sua própria linha */
 }
 
+/* Estilo para o link de navegação ativo (desktop) */
 li a.active {
-  font-weight: bold;
-  color: #5227FF; /* Cor de destaque para o link ativo */
+    font-weight: bold;
+    color: #5227FF; /* Cor de destaque para o link ativo na navegação */
 }
 
-/* Container principal do Carrossel */
+/* ---------------------------------------------------- */
+/* Container Principal do Carrossel Vertical */
+/* ---------------------------------------------------- */
 .vertical-carousel-section {
-  background-color: #ffffff; 
-  max-width: 1400px; /* Largura máxima do carrossel */
-  margin-left: auto; /* Centraliza horizontalmente */
-  margin-right: auto; /* Centraliza horizontalmente */
-  margin-top: 80px;
-  margin-bottom: 80px;
-  display: grid; /* Layout de grid para as duas colunas */
-  grid-template-columns: 40% 60%; /* Ajuste na proporção das colunas */
-  position: relative; /* Para posicionamento interno, se necessário */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /* Sombra mais sutil, como em outros componentes */
-  border-radius: 15px; /* Bordas arredondadas para o carrossel inteiro */
-  overflow: hidden; /* Esconde conteúdo que transborde, importante para os slides */
-  height: 600px; /* Altura fixa para ser mais compacto */
-  max-height: 80vh; /* Garante que não seja muito alto em telas maiores */
-  /* Animação de entrada */
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  font-family: FontePrimaria;
+    background-color: #ffffff;
+    max-width: 1400px; /* Largura máxima para o carrossel */
+    margin: 80px auto; /* Centraliza horizontalmente e adiciona margem vertical */
+    display: grid; /* Layout de grid para as duas colunas */
+    grid-template-columns: 40% 60%; /* Proporção das colunas: 40% para conteúdo, 60% para slides */
+    position: relative; /* Para posicionamento de elementos internos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.15); /* Sombra suave e profunda */
+    border-radius: 15px; /* Bordas arredondadas para o container inteiro */
+    overflow: hidden; /* Esconde conteúdo que transborde, essencial para os slides */
+    height: 600px; /* Altura fixa para o carrossel */
+    max-height: 80vh; /* Garante que não seja muito alto em telas maiores */
+    font-family: 'FontePrimaria', sans-serif; /* Define a fonte primária */
+
+    /* Animação de entrada (fade-in e slide-up) */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* Estado visível para a animação de entrada */
 .vertical-carousel-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Coluna da Barra Principal (esquerda) */
+/* ---------------------------------------------------- */
+/* Coluna da Barra Principal (esquerda) - Conteúdo Fixo */
+/* ---------------------------------------------------- */
 .vertical-carousel-section .content-container {
-  padding: 50px;
-  background-color: #122120; /* Cor escura do rodapé para consistência */
-  display: flex; /* Para centralizar o conteúdo verticalmente */
-  flex-direction: column;
-  justify-content: center; /* Centraliza conteúdo verticalmente */
-  align-items: flex-start; /* Alinha o texto à esquerda */
+    padding: 50px;
+    background-color: #122120; /* Cor escura de fundo (consistente com rodapé) */
+    display: flex; /* Flexbox para alinhamento do conteúdo */
+    flex-direction: column; /* Conteúdo empilhado verticalmente */
+    justify-content: center; /* Centraliza conteúdo verticalmente */
+    align-items: flex-start; /* Alinha o texto e outros itens à esquerda */
 }
 
+/* Título na coluna de conteúdo */
 .vertical-carousel-section .content-container h1 {
     font-size: 2.5em;
-    color: #ffffff;
+    color: #ffffff; /* Texto branco para contraste */
     margin-bottom: 20px;
 }
 
+/* Parágrafos na coluna de conteúdo */
 .vertical-carousel-section .content-container p {
     margin-bottom: 30px;
-    color: #ccc;
-    font-family: FonteSecundaria;
+    color: #ccc; /* Cor de texto mais clara */
+    font-family: 'FonteSecundaria', sans-serif; /* Define a fonte secundária */
 }
 
+/* Links de navegação do slide (em desktop - links de texto) */
 .vertical-carousel-section .slide-navigation a {
-    color: #ccc; /* Cor padrão para os links */
-    padding: 8px 0; /* Padding para os links de navegação */
-    transition: color 0.2s ease;
+    color: #ccc; /* Cor padrão dos links */
+    padding: 8px 0; /* Padding vertical para área de clique */
+    transition: color 0.2s ease; /* Transição suave de cor */
 }
 
+/* Efeito hover nos links de navegação (desktop) */
 .vertical-carousel-section .slide-navigation a:hover {
-    color: #11bd92; /* Cor de hover do rodapé */
+    color: #11bd92; /* Cor de destaque no hover (consistente com o rodapé) */
 }
 
-
-/* Coluna dos Slides (direita) */
+/* ---------------------------------------------------- */
+/* Coluna dos Slides (direita) - Conteúdo Rolável */
+/* ---------------------------------------------------- */
 .vertical-carousel-section .slides {
-  overflow-y: auto; /* Permite rolagem apenas nesta div */
-  height: 100%; /* Ocupa a altura total do contêiner pai */
-  scrollbar-width: none; /* Esconde scrollbar do Firefox */
+    overflow-y: auto; /* Permite rolagem vertical apenas nesta div */
+    height: 100%; /* Ocupa a altura total do contêiner pai */
+    scroll-behavior: smooth; /* Rolagem suave ao navegar entre slides */
+    scroll-snap-type: y mandatory; /* "Prende" a rolagem em cada slide */
+    -ms-overflow-style: none; /* Esconde scrollbar do IE/Edge */
+    scrollbar-width: none; /* Esconde scrollbar do Firefox */
 }
 
-/* Esconde scrollbar para Webkit (Chrome, Safari) */
+/* Esconde scrollbar para navegadores Webkit (Chrome, Safari) */
 .vertical-carousel-section .slides::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
+/* Estilo para cada slide individual */
 .vertical-carousel-section .slides .slide {
-  height: 100%; /* Cada slide ocupa a altura total do contêiner de rolagem */
-  background-color: #e1f4f2; /* Fundo branco padrão para cada slide */
-  display: flex;
-  padding: 40px;
-  color: #333333;
-  align-items: center; /* Centraliza verticalmente o inner-content */
-  justify-content: center; /* Centraliza horizontalmente o inner-content */
-  text-align: center; /* Centraliza o texto */
-  scroll-snap-align: start; /* Para um scroll mais "preso" aos slides */
-  position: relative; /* Necessário para o pseudo-elemento do separador */
+    height: 100%; /* Cada slide ocupa a altura total do contêiner de rolagem */
+    min-height: 580px; /* Aumentado para garantir que o conteúdo e botão apareçam */
+    background-color: #e1f4f2; /* Fundo padrão para os slides */
+    display: flex;
+    padding: 50px; /* Aumenta o padding para dar mais espaço */
+    color: #333333;
+    align-items: center; /* Centraliza verticalmente o conteúdo interno */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo interno */
+    text-align: center; /* Centraliza o texto */
+    scroll-snap-align: start; /* Ajuda a "prender" a rolagem no início do slide */
+    position: relative; /* Necessário para o pseudo-elemento do separador */
+    box-sizing: border-box; /* Inclui padding na altura/largura */
 }
 
 /* Adiciona um tom sutil para diferenciar os slides pares */
 .vertical-carousel-section .slides .slide:nth-child(even) {
-  background-color: #d3e9e6; 
+    background-color: #d3e9e6;
 }
 
-/* Separador entre os slides para indicar a transição */
+/* Separador visual entre os slides */
 .vertical-carousel-section .slides .slide:not(:first-child)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  opacity: 0.7;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); /* Linha sutil */
+    opacity: 0.2;
 }
 
+/* Container interno de conteúdo dentro de cada slide */
 .vertical-carousel-section .slides .inner-content {
-    max-width: 80%; /* Limita a largura do texto dentro do slide */
+    max-width: 80%; /* Limita a largura do texto para melhor legibilidade */
+    padding-top: 20px; /* Adiciona padding vertical */
+    padding-bottom: 20px; /* Adiciona padding vertical */
 }
 
+/* Título dentro de cada slide */
 .vertical-carousel-section .slides .inner-content h1 {
     font-size: 2.2em;
     margin-bottom: 15px;
     color: #444;
 }
+
+/* Lista de itens dentro de cada slide */
 .vertical-carousel-section .slides .inner-content ul {
-    list-style: none; /* Remove os marcadores padrão */
-    padding-left: 0; /* Remove o padding padrão da lista */
-    margin-top: 20px; /* Espaço acima da lista */
+    list-style: none; /* Remove os marcadores padrão (já feito no reset, mas reforça) */
+    padding-left: 0;
+    margin-top: 20px;
     text-align: left; /* Alinha o texto dos itens à esquerda */
-    font-family: FonteSecundaria;
+    font-family: 'FonteSecundaria', sans-serif;
 }
 
+/* Itens individuais da lista */
 .vertical-carousel-section .slides .inner-content li {
     font-size: 1.05em;
     color: #666;
-    line-height: 1.6; /* Melhora a legibilidade */
-    position: relative; /* Necessário para o posicionamento do marcador personalizado */
-    padding-left: 25px; /* Espaço para o marcador personalizado */
-    margin-bottom: 15px; /* Espaçamento entre os itens da lista */
+    line-height: 1.6;
+    position: relative; /* Para o posicionamento do marcador personalizado */
+    padding-left: 25px; /* Espaço para o marcador */
+    margin-bottom: 15px; /* Espaçamento entre os itens */
 }
 
+/* Marcador personalizado para os itens da lista */
 .vertical-carousel-section .slides .inner-content li::before {
-    content: '✔'; 
+    content: '✔'; /* Caractere de checkmark */
     position: absolute;
     left: 0;
     top: 2px; /* Ajuste fino da posição vertical */
-    color: #193c3a; /* Cor roxa do tema para o marcador */
+    color: #bdaa07; /* Cor do tema para o marcador */
     font-weight: bold;
     font-size: 1.1em;
 }
 
-/* Responsividade */
-@media (max-width: 992px) {
-  .vertical-carousel-section {
-    grid-template-columns: 1fr; /* Em telas menores, as colunas se empilham */
-    height: auto; /* Altura automática quando empilhado */
-    max-height: none; /* Remove a altura máxima */
-    max-width: 95%;
-  }
-  .vertical-carousel-section .content-container {
-    padding: 30px;
-    justify-content: flex-start; /* Alinha no topo */
-  }
-  .vertical-carousel-section .content-container h1 {
-      font-size: 2em;
-  }
-  .vertical-carousel-section .slides {
-    height: 500px; /* Altura fixa para a área de scroll no mobile */
-    padding: 30px;
-  }
-  .vertical-carousel-section .slide-navigation ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Quebra de linha para botões */
-    gap: 10px;
-  }
-  .vertical-carousel-section .slide-navigation li {
-      margin-top: 0; /* Remove margin-top se estiver em linha */
-  }
+/* ---------------------------------------------------- */
+/* Estilo para o Botão "Saiba Mais" dentro do Slide */
+/* ---------------------------------------------------- */
+.vertical-carousel-section .slides .slide-button {
+    display: inline-block; /* Permite que o botão tenha padding e margens */
+    background-color: #193c3a; /* Cor de fundo do botão (pode ser ajustada ao seu tema) */
+    color: #fff; /* Cor do texto do botão */
+    padding: 12px 25px;
+    border-radius: 8px; /* Cantos arredondados */
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold;
+    margin-top: 30px; /* Espaço acima do botão para separá-lo da lista */
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease; /* Transições suaves */
+    border: 2px solid transparent; /* Borda transparente para transição no hover */
 }
 
+/* Efeito hover no botão do slide */
+.vertical-carousel-section .slides .slide-button:hover {
+    background-color: #11bd92; /* Cor mais clara no hover */
+    transform: translateY(-2px); /* Efeito de elevação sutil */
+    border-color: #11bd92; /* Borda da mesma cor no hover */
+}
+
+/* ---------------------------------------------------- */
+/* Responsividade */
+/* ---------------------------------------------------- */
+
+/* Para telas médias (tablets e laptops pequenos) - Max-width: 992px */
+@media (max-width: 992px) {
+    .vertical-carousel-section {
+        grid-template-columns: 1fr; /* Colunas empilhadas verticalmente */
+        height: auto; /* Altura automática quando empilhado */
+        max-height: none; /* Remove a altura máxima para se ajustar ao conteúdo */
+        max-width: 95%; /* Ocupa mais largura em telas menores */
+        margin: 60px auto; /* Ajusta margem vertical */
+    }
+
+    .vertical-carousel-section .content-container {
+        padding: 30px; /* Padding ajustado */
+        justify-content: flex-start; /* Alinha o conteúdo no topo quando empilhado */
+        align-items: center; /* Centraliza o texto e a navegação horizontalmente */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .vertical-carousel-section .content-container h1 {
+        font-size: 2em; /* Reduz o tamanho da fonte do título */
+    }
+
+    .vertical-carousel-section .slides {
+        height: 550px; /* Altura fixa para a área de scroll no mobile/tablet - Ajustado para mais conteúdo */
+        padding: 30px; /* Padding ajustado para os slides */
+    }
+
+    .vertical-carousel-section .slides .slide {
+        min-height: 520px; /* Ajuste para garantir que o conteúdo não seja cortado em telas menores */
+        padding: 40px; /* Mantém um bom padding */
+    }
+
+    /* Ajuste para a navegação dos slides em telas menores: Botões um embaixo do outro, como links */
+    .vertical-carousel-section .slide-navigation {
+        display: flex;
+        flex-direction: column; /* Botões empilhados verticalmente */
+        align-items: center; /* Centraliza os botões */
+        gap: 15px; /* Espaço entre os botões */
+        margin-top: 25px; /* Espaço acima da navegação */
+        width: 100%; /* Ocupa toda a largura disponível */
+    }
+
+    .vertical-carousel-section .slide-navigation li {
+        margin-top: 0; /* Remove margem superior se estiver em linha */
+        display: block; /* Garante que cada item ocupe sua própria linha */
+        width: auto; /* Largura automática para o texto */
+        max-width: 100%; /* Garante que não ultrapasse o limite */
+    }
+
+    .vertical-carousel-section .slide-navigation a {
+        padding: 8px 15px; /* Mantém um padding leve para área de clique */
+        border: none; /* REMOVE A BORDA */
+        border-radius: 0; /* REMOVE O BORDER-RADIUS */
+        background-color: transparent; /* REMOVE A COR DE FUNDO */
+        display: inline-block; /* Permite padding e width baseado no conteúdo */
+        width: auto; /* Largura baseada no conteúdo */
+        box-sizing: border-box; /* Inclui padding na largura/altura */
+        font-weight: bold; /* Mantém o bold */
+        transition: color 0.3s ease; /* Transição apenas para a cor do texto */
+    }
+
+    /* Estilo do botão ativo em telas menores (cor roxa) */
+    li a.active {
+        color: #5227FF; /* Cor de texto roxa para o ativo */
+        background-color: transparent; /* Garante que o fundo continue transparente */
+        border: none; /* Garante que a borda continue transparente */
+    }
+
+    /* Estilo dos botões inativos em telas menores (cor de borda e texto) */
+    .vertical-carousel-section .slide-navigation a:not(.active) {
+        color: #ccc; /* Cor do texto mais clara */
+        background-color: transparent; /* Fundo transparente para inativos */
+        border: none; /* Borda transparente */
+    }
+
+    /* Efeito hover para botões inativos em telas menores */
+    .vertical-carousel-section .slide-navigation a:not(.active):hover {
+        color: #11bd92; /* Cor de hover para links inativos */
+        /* Não há border-color para alterar, pois a borda foi removida */
+    }
+
+    /* Override para o hover do ativo (garante que não mude de cor ao passar o mouse) */
+    li a.active:hover {
+        background-color: transparent; /* Mantém o fundo transparente */
+        color: #5227FF; /* Mantém a cor ativa no hover */
+        border: none; /* Mantém a borda transparente */
+    }
+}
+
+/* Para telas pequenas (smartphones) - Max-width: 768px */
 @media (max-width: 768px) {
-  .vertical-carousel-section .content-container {
-    text-align: center;
-    align-items: center; /* Centraliza tudo em telas muito pequenas */
-  }
-  .vertical-carousel-section .content-container p {
-      font-size: 0.9em;
-  }
-  .vertical-carousel-section .slides .inner-content h1 { font-size: 1.8em; }
-  .vertical-carousel-section .slides .inner-content li { font-size: 1em; }
+    .vertical-carousel-section {
+        margin: 40px auto; /* Reduz margem vertical */
+    }
+
+    .vertical-carousel-section .content-container {
+        padding: 20px; /* Padding ainda mais reduzido */
+        text-align: center; /* Garante que o texto esteja centralizado */
+        align-items: center; /* Centraliza todos os itens */
+    }
+
+    .vertical-carousel-section .content-container h1 {
+        font-size: 1.8em; /* Fonte menor para títulos */
+    }
+
+    .vertical-carousel-section .content-container p {
+        font-size: 0.9em; /* Fonte menor para parágrafos */
+        margin-bottom: 20px;
+    }
+
+    .vertical-carousel-section .slides {
+        height: 480px; /* Altura menor para a área de slides - Ajustado novamente */
+        padding: 20px; /* Padding reduzido nos slides */
+    }
+
+    .vertical-carousel-section .slides .slide {
+        min-height: 450px; /* Garante altura mínima para slides em telas muito pequenas */
+        padding: 30px 20px; /* Ajusta padding para mobile */
+    }
+
+    .vertical-carousel-section .slides .inner-content {
+        max-width: 100%; /* Permite que o conteúdo ocupe mais largura */
+    }
+
+    .vertical-carousel-section .slides .inner-content h1 {
+        font-size: 1.6em; /* Fonte menor para títulos dos slides */
+    }
+
+    .vertical-carousel-section .slides .inner-content ul {
+        margin-top: 15px; /* Reduz um pouco a margem superior da lista */
+    }
+
+    .vertical-carousel-section .slides .inner-content li {
+        font-size: 0.95em; /* Fonte menor para itens da lista */
+        padding-left: 20px; /* Ajusta padding para o marcador */
+    }
+
+    .vertical-carousel-section .slides .inner-content li::before {
+        top: 0px; /* Ajusta a posição do marcador */
+    }
+
+    .vertical-carousel-section .slides .slide-button {
+        width: 100%; /* Botão ocupa largura total em mobile para facilitar o toque */
+        box-sizing: border-box; /* Garante que padding não estoure a largura */
+        padding: 10px 20px; /* Padding ajustado para o botão */
+        font-size: 0.9em; /* Fonte menor para o botão */
+        margin-top: 20px; /* Ajusta margem superior do botão */
+    }
+
+    /* Ajuste para a navegação em telas muito pequenas */
+    .vertical-carousel-section .slide-navigation {
+        gap: 10px; /* Reduz o espaço entre os botões */
+    }
+
+    /* Em telas muito pequenas, o max-width pode ser removido ou ajustado para maior flexibilidade */
+    .vertical-carousel-section .slide-navigation li {
+         max-width: 100%; /* Permite ocupar a largura necessária para o texto */
+    }
 }

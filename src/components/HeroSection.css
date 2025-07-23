@@ -1,67 +1,112 @@
 .hero-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 100vw; /* Garante que o container ocupe toda a largura da tela */
+    height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+    /* As duas linhas abaixo centralizam o container na tela, corrigindo
+       qualquer desalinhamento causado por um container pai com flex ou grid. */
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
 }
 
 .loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  transition: opacity 0.8s ease-out;
-  opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: opacity 0.8s ease-out;
+    opacity: 1;
 }
 
 .loading-overlay.hidden {
-  opacity: 0;
-  pointer-events: none; /* Impede que o overlay bloqueie cliques quando estiver invisível */
+    opacity: 0;
+    pointer-events: none; /* Impede que o overlay bloqueie cliques quando estiver invisível */
 }
 
 .loading-overlay h1 {
-  color: #ffffff;
-  font-family: FontePrimaria; /* Substitua por sua fonte primária, se houver */
-  font-size: 10.5em;
-  font-weight: 200; /* Uma espessura mais fina para elegância */
-  letter-spacing: 4px;
-  text-transform: uppercase; 
+    color: #ffffff;
+    font-family: FontePrimaria; /* Exemplo de fonte, substitua por FontePrimaria se tiver */
+    font-size: 15.5em; /* Valor original, será ajustado abaixo */
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center; /* Garante que o texto esteja centralizado em uma possível quebra de linha */
+
+    /* NOVO: Ajuste inicial da fonte usando vw para responsividade */
+    font-size: 8vw; /* Começa com 8% da largura da viewport */
+    white-space: nowrap; /* Tenta manter o texto em uma linha, quebrando apenas se estritamente necessário */
+    min-width: 250px; /* Garante que o texto não fique absurdamente pequeno em telas muito estreitas */
 }
 
+/* NOVO: Media Queries para o título */
+
+/* Para telas maiores que 1600px, aumenta o tamanho máximo */
+@media (min-width: 1600px) {
+    .loading-overlay h1 {
+        font-size: 120px; /* Um tamanho fixo máximo para telas muito grandes */
+        /* Ou, se preferir continuar com vw mas com limite: */
+        /* font-size: clamp(8vw, 120px, 12vw); */
+    }
+}
+
+/* Para telas médias (tablets em modo paisagem) */
+@media (max-width: 1024px) {
+    .loading-overlay h1 {
+        font-size: 9vw; /* Aumenta um pouco em relação ao padrão para tablets */
+        letter-spacing: 3px;
+    }
+}
+
+/* Para tablets (modo retrato) e smartphones grandes */
+@media (max-width: 768px) {
+    .loading-overlay h1 {
+        font-size: 11vw; /* Fica um pouco maior para preencher melhor a tela */
+        letter-spacing: 2px;
+    }
+}
+
+/* Para smartphones pequenos */
+@media (max-width: 480px) {
+    .loading-overlay h1 {
+        font-size: 14vw; /* Ocupa uma parte maior da tela pequena */
+        letter-spacing: 1px;
+    }
+}
+
+
 .hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Garante que o vídeo cubra todo o contêiner */
-  opacity: 0;
-  transition: opacity 1.5s ease-in; /* Transição um pouco mais lenta */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cubra todo o contêiner */
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .hero-video.visible {
-  opacity: 1;
+    opacity: 1;
 }
 
 .video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(4, 141, 136, 0.2); /* Filtro azul escuro semi-transparente */
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 1.5s ease-in;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 141, 136, 0.2); /* Filtro azul escuro semi-transparente */
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
 }
 
 .video-overlay.visible {
-  opacity: 1;
+    opacity: 1;
 }
