@@ -119,7 +119,7 @@ li a.active {
 .vertical-carousel-section .slides .slide {
     height: 100%; /* Cada slide ocupa a altura total do contêiner de rolagem */
     min-height: 580px; /* Aumentado para garantir que o conteúdo e botão apareçam */
-    background-color: #e1f4f2; /* Fundo padrão para os slides */
+    background-color: #fff; /* Fundo padrão para os slides */
     display: flex;
     padding: 50px; /* Aumenta o padding para dar mais espaço */
     color: #333333;
@@ -133,7 +133,7 @@ li a.active {
 
 /* Adiciona um tom sutil para diferenciar os slides pares */
 .vertical-carousel-section .slides .slide:nth-child(even) {
-    background-color: #d3e9e6;
+    background-color: #fcfcfc;
 }
 
 /* Separador visual entre os slides */

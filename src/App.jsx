@@ -46,8 +46,8 @@ function App() {
         dotSize={2}
         gap={10}
         proximity={250}
-        baseColor="rgba(25, 60, 58, 0.1)"
-        activeColor="rgba(25, 60, 58, 1)"
+        baseColor="rgba(16, 56, 55, 0.2)"
+        activeColor="rgba(0, 205, 201, 1)"
       />
       <HeroSection />
 
